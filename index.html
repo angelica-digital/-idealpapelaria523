@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ideal Papelaria & Cia | Vila Santa Edwiges - São Paulo</title>
+
+  <meta
+    name="description"
+    content="Material escolar, papelaria, eletrônicos, impressões, xerox, encadernação, cópia de chaves e fotos 3x4 na Vila Santa Edwiges, São Paulo."
+  >
+
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+          colors: {
+            ideal: {
+              50: '#fff8ed',
+              100: '#ffefd4',
+              400: '#ff9d2e',
+              500: '#f58220',
+              600: '#dc6812',
+              700: '#b74d10',
+              dark: '#18212b'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 40px rgba(15, 23, 42, 0.08)',
+            card: '0 12px 35px rgba(15, 23, 42, 0.07)',
+            whatsapp: '0 12px 30px rgba(37, 211, 102, .30)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection {
+      background: #f58220;
+      color: #fff;
+    }
+
+    .hero-grid {
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(245,130,32,.13), transparent 26%),
+        radial-gradient(circle at 85% 80%, rgba(251,191,36,.11), transparent 28%);
+    }
+
+    .category-card {
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px rgba(15,23,42,.10);
+      border-color: rgba(245,130,32,.25);
+    }
+
+    .whatsapp-pulse::before {
+      content: "";
+      position: absolute;
+      inset: -5px;
+      border-radius: 9999px;
+      border: 2px solid rgba(37,211,102,.35);
+      animation: pulse-ring 2s infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(.9);
+        opacity: .8;
+      }
+      80%, 100% {
+        transform: scale(1.25);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-800 font-sans">
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-[72px] flex items-center justify-between gap-4">
+
+        <!-- LOGO -->
+        <a href="#inicio" class="flex items-center gap-3 shrink-0">
+          <div class="w-11 h-11 rounded-xl bg-ideal-500 text-white flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-pencil text-lg"></i>
+          </div>
+
+          <div class="leading-none">
+            <span class="block text-xl sm:text-2xl font-black tracking-tight text-slate-900">
+              Ideal
+            </span>
+            <span class="text-[11px] sm:text-xs font-bold uppercase tracking-[.16em] text-ideal-500">
+              Papelaria & Cia
+            </span>
+          </div>
+        </a>
+
+        <!-- NAV DESKTOP -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+          <a href="#categorias" class="hover:text-ideal-500 transition">Produtos</a>
+          <a href="#servicos" class="hover:text-ideal-500 transition">Serviços</a>
+          <a href="#avaliacoes" class="hover:text-ideal-500 transition">Avaliações</a>
+          <a href="#contato" class="hover:text-ideal-500 transition">Onde estamos</a>
+        </nav>
+
+        <!-- CTA HEADER -->
+        <a
+          data-whatsapp
+          href="#"
+          class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl px-4 sm:px-5 py-3 transition shadow-md active:scale-[.98]"
+        >
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span class="hidden sm:inline">Chamar no WhatsApp</span>
+          <span class="sm:hidden">WhatsApp</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+    <section id="inicio" class="hero-grid relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- COPY -->
+          <div class="max-w-2xl">
+
+            <div class="inline-flex items-center gap-2 px-3.5 py-2 bg-ideal-50 border border-orange-100 rounded-full text-sm font-bold text-ideal-700 mb-6">
+              <i class="fa-solid fa-location-dot text-ideal-500"></i>
+              Vila Santa Edwiges • São Paulo
+            </div>
+
+            <h1 class="text-[2.6rem] leading-[1.03] sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-[-.045em] text-slate-950">
+              Tudo o que você precisa,
+              <span class="text-ideal-500">pertinho de você.</span>
+            </h1>
+
+            <p class="mt-6 text-lg sm:text-xl leading-relaxed text-slate-600 max-w-xl">
+              Material escolar, papelaria fofa, eletrônicos e serviços rápidos de balcão na
+              <strong class="text-slate-800">Vila Santa Edwiges / São Paulo.</strong>
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+
+              <a
+                data-whatsapp
+                href="#"
+                class="inline-flex min-h-[58px] items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-base sm:text-lg font-extrabold rounded-2xl px-7 py-4 shadow-whatsapp transition hover:-translate-y-0.5 active:scale-[.98]"
+              >
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                Fazer Orçamento Rápido
+              </a>
+
+              <a
+                href="#categorias"
+                class="inline-flex min-h-[58px] items-center justify-center gap-2 bg-white border border-slate-200 hover:border-slate-300 text-slate-800 font-bold rounded-2xl px-7 py-4 transition"
+              >
+                Ver o que você encontra
+                <i class="fa-solid fa-arrow-down text-sm"></i>
+              </a>
+
+            </div>
+
+            <!-- TRUST -->
+            <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-600">
+
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center">
+                  <i class="fa-solid fa-check text-green-600 text-xs"></i>
+                </span>
+                Atendimento local
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center">
+                  <i class="fa-solid fa-check text-green-600 text-xs"></i>
+                </span>
+                Resposta pelo WhatsApp
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center">
+                  <i class="fa-solid fa-check text-green-600 text-xs"></i>
+                </span>
+                Seg. a Sáb.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- HERO VISUAL -->
+          <div class="relative">
+
+            <div class="absolute -top-12 -right-12 w-56 h-56 bg-orange-200/40 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-56 h-56 bg-yellow-100/70 rounded-full blur-3xl"></div>
+
+            <div class="relative bg-white rounded-[2rem] border border-slate-100 shadow-soft p-5 sm:p-7">
+
+              <div class="grid grid-cols-2 gap-4">
+
+                <div class="col-span-2 bg-gradient-to-br from-ideal-500 to-orange-400 rounded-3xl p-7 text-white min-h-[190px] flex flex-col justify-between">
+                  <div class="w-14 h-14 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center">
+                    <i class="fa-solid fa-pen-ruler text-2xl"></i>
+                  </div>
+
+                  <div>
+                    <p class="text-orange-100 text-sm font-semibold mb-1">
+                      Para escola, trabalho e dia a dia
+                    </p>
+                    <h2 class="text-2xl sm:text-3xl font-black">
+                      Papelaria completa perto de você.
+                    </h2>
+                  </div>
+                </div>
+
+                <div class="bg-pink-50 rounded-3xl p-5 min-h-[155px]">
+                  <div class="w-11 h-11 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center mb-5">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
+                  <p class="font-extrabold text-slate-900">Papelaria Fofa</p>
+                  <p class="text-sm text-slate-500 mt-1">Agendas, canetas e mimos.</p>
+                </div>
+
+                <div class="bg-blue-50 rounded-3xl p-5 min-h-[155px]">
+                  <div class="w-11 h-11 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5">
+                    <i class="fa-solid fa-headphones"></i>
+                  </div>
+                  <p class="font-extrabold text-slate-900">Eletrônicos</p>
+                  <p class="text-sm text-slate-500 mt-1">Fones, cabos e acessórios.</p>
+                </div>
+
+              </div>
+
+              <!-- RATING CARD -->
+              <div class="absolute -bottom-6 -left-2 sm:-left-7 bg-white shadow-card border border-slate-100 rounded-2xl px-5 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-11 h-11 bg-yellow-50 rounded-xl flex items-center justify-center text-yellow-500">
+                    <i class="fa-solid fa-star text-xl"></i>
+                  </div>
+
+                  <div>
+                    <div class="font-black text-lg leading-none text-slate-900">
+                      4.7 <span class="text-yellow-400">★★★★★</span>
+                    </div>
+                    <div class="text-xs text-slate-500 mt-1">
+                      Avaliação no Google
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         CATEGORIAS
+    ====================================================== -->
+    <section id="categorias" class="py-20 md:py-28 bg-slate-50/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="max-w-2xl mx-auto text-center">
+          <span class="text-sm uppercase tracking-[.2em] text-ideal-500 font-extrabold">
+            Ideal Papelaria & Cia
+          </span>
+
+          <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950">
+            O que você encontra por aqui
+          </h2>
+
+          <p class="mt-4 text-slate-600 text-lg">
+            Do material que faltou para amanhã ao serviço rápido que você precisa resolver hoje.
+          </p>
+        </div>
+
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <!-- CARD 1 -->
+          <article class="category-card bg-white border border-slate-100 rounded-3xl p-6">
+            <div class="w-14 h-14 bg-orange-50 text-ideal-500 rounded-2xl flex items-center justify-center text-2xl mb-6">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <h3 class="text-xl font-black text-slate-900">
+              Material Escolar & Escritório
+            </h3>
+
+            <p class="mt-3 text-slate-500 leading-relaxed">
+              Para estudar, trabalhar ou completar sua lista sem complicação.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Cadernos Tilibra</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Faber-Castell</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Canson</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Tintas</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">TekBond</span>
+            </div>
+          </article>
+
+
+          <!-- CARD 2 -->
+          <article class="category-card bg-white border border-slate-100 rounded-3xl p-6">
+            <div class="w-14 h-14 bg-pink-50 text-pink-500 rounded-2xl flex items-center justify-center text-2xl mb-6">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+
+            <h3 class="text-xl font-black text-slate-900">
+              Papelaria Fofa & Presentes
+            </h3>
+
+            <p class="mt-3 text-slate-500 leading-relaxed">
+              Itens bonitos e criativos para você usar ou presentear.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Canetas coloridas</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Agendas</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Mimos</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Itens criativos</span>
+            </div>
+          </article>
+
+
+          <!-- CARD 3 -->
+          <article class="category-card bg-white border border-slate-100 rounded-3xl p-6">
+            <div class="w-14 h-14 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center text-2xl mb-6">
+              <i class="fa-solid fa-headphones-simple"></i>
+            </div>
+
+            <h3 class="text-xl font-black text-slate-900">
+              Eletrônicos & Acessórios
+            </h3>
+
+            <p class="mt-3 text-slate-500 leading-relaxed">
+              Acessórios úteis para o celular, trabalho e rotina.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Fones Kaidi</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Bluetooth</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Cabos USB</span>
+              <span class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold">Caixas de som</span>
+            </div>
+          </article>
+
+
+          <!-- CARD 4 -->
+          <article id="servicos" class="category-card bg-slate-900 text-white rounded-3xl p-6">
+            <div class="w-14 h-14 bg-white/10 text-orange-300 rounded-2xl flex items-center justify-center text-2xl mb-6">
+              <i class="fa-solid fa-print"></i>
+            </div>
+
+            <h3 class="text-xl font-black">
+              Serviços Rápidos de Balcão
+            </h3>
+
+            <p class="mt-3 text-slate-300 leading-relaxed">
+              Resolva serviços do dia a dia sem precisar ir longe.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">Xerox</span>
+              <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">Impressões</span>
+              <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">Encadernação</span>
+              <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">Cópia de chaves</span>
+              <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">Fotos 3x4</span>
+            </div>
+          </article>
+
+        </div>
+
+
+        <!-- CTA -->
+        <div class="mt-10 text-center">
+          <p class="text-slate-600 mb-4">
+            Quer saber se temos o que você procura?
+          </p>
+
+          <a
+            data-whatsapp
+            href="#"
+            class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl px-7 py-4 transition shadow-lg"
+          >
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            Perguntar pelo WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DIFERENCIAL LOCAL
+    ====================================================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="overflow-hidden rounded-[2rem] bg-ideal-dark text-white">
+          <div class="grid lg:grid-cols-2">
+
+            <div class="p-8 sm:p-12 lg:p-16">
+
+              <span class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm font-bold text-orange-200">
+                <i class="fa-solid fa-house"></i>
+                Comércio do bairro
+              </span>
+
+              <h2 class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                O que você precisa pode estar
+                <span class="text-orange-300">a poucos minutos de casa.</span>
+              </h2>
+
+              <p class="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
+                Antes de enfrentar trânsito ou ir até um shopping para comprar um item simples,
+                fale com a Ideal. Você pergunta pelo WhatsApp, confirma o que precisa e passa na
+                loja para resolver.
+              </p>
+
+              <a
+                data-whatsapp
+                href="#"
+                class="mt-8 inline-flex items-center justify-center gap-3 bg-ideal-500 hover:bg-ideal-600 text-white font-extrabold rounded-2xl px-7 py-4 transition"
+              >
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                Consultar um produto
+              </a>
+
+            </div>
+
+
+            <div class="bg-gradient-to-br from-ideal-500 to-orange-400 p-8 sm:p-12 lg:p-16 flex items-center">
+
+              <div class="w-full grid grid-cols-2 gap-4">
+
+                <div class="bg-white/15 backdrop-blur rounded-3xl p-5 sm:p-6">
+                  <i class="fa-solid fa-location-dot text-3xl"></i>
+                  <p class="mt-5 font-black text-lg">No bairro</p>
+                  <p class="text-orange-100 text-sm mt-1">Vila Santa Edwiges</p>
+                </div>
+
+                <div class="bg-white/15 backdrop-blur rounded-3xl p-5 sm:p-6">
+                  <i class="fa-brands fa-whatsapp text-3xl"></i>
+                  <p class="mt-5 font-black text-lg">Pergunte antes</p>
+                  <p class="text-orange-100 text-sm mt-1">Direto pelo WhatsApp</p>
+                </div>
+
+                <div class="col-span-2 bg-white text-slate-900 rounded-3xl p-6">
+                  <div class="flex gap-4 items-center">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-50 text-ideal-500 flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                      <p class="font-black text-lg">Segunda a Sábado</p>
+                      <p class="text-slate-500">Das 08:00 às 19:30</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         AVALIAÇÕES
+    ====================================================== -->
+    <section id="avaliacoes" class="py-20 md:py-28 bg-[#fffaf4]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center">
+
+          <div class="inline-flex items-center gap-1 text-yellow-400 text-2xl mb-4">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+
+          <h2 class="text-4xl sm:text-5xl font-black text-slate-950">
+            4.7 no Google
+          </h2>
+
+          <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+            A experiência de quem compra no bairro ajuda outras pessoas a encontrar a Ideal.
+          </p>
+
+        </div>
+
+
+        <!-- Depoimentos -->
+        <div class="mt-12 grid md:grid-cols-3 gap-5">
+
+          <article class="bg-white rounded-3xl p-7 border border-orange-100 shadow-card">
+            <div class="text-yellow-400 tracking-wider text-sm">
+              ★★★★★
+            </div>
+
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              “Ótimo atendimento e muita variedade. Sempre encontro o que preciso.”
+            </p>
+
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-black text-ideal-600">
+                C
+              </div>
+              <div>
+                <p class="font-bold text-slate-900">Cliente local</p>
+                <p class="text-xs text-slate-400">Avaliação no Google</p>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="bg-white rounded-3xl p-7 border border-orange-100 shadow-card">
+            <div class="text-yellow-400 tracking-wider text-sm">
+              ★★★★★
+            </div>
+
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              “Loja prática para resolver várias coisas sem precisar sair do bairro.”
+            </p>
+
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-black text-blue-600">
+                C
+              </div>
+              <div>
+                <p class="font-bold text-slate-900">Cliente local</p>
+                <p class="text-xs text-slate-400">Avaliação no Google</p>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="bg-white rounded-3xl p-7 border border-orange-100 shadow-card">
+            <div class="text-yellow-400 tracking-wider text-sm">
+              ★★★★★
+            </div>
+
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              “Atendimento rápido e várias opções de papelaria e serviços.”
+            </p>
+
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center font-black text-pink-600">
+                C
+              </div>
+              <div>
+                <p class="font-bold text-slate-900">Cliente local</p>
+                <p class="text-xs text-slate-400">Avaliação no Google</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+
+        <!-- NFC -->
+        <div class="mt-10 bg-white border border-orange-100 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
+          <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-5">
+
+            <div class="w-16 h-16 bg-ideal-50 text-ideal-500 rounded-2xl flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-wifi rotate-90 text-2xl"></i>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-black text-slate-900">
+                Já comprou com a gente?
+              </h3>
+
+              <p class="mt-1 text-slate-500">
+                Aproxime seu celular da placa NFC no balcão e deixe sua avaliação no Google.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="flex items-center gap-2 text-yellow-400 font-black text-lg whitespace-nowrap">
+            4.7
+            <span>★★★★★</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         CTA FINAL
+    ====================================================== -->
+    <section class="py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+        <div class="bg-gradient-to-br from-ideal-500 to-orange-400 rounded-[2rem] px-6 py-12 sm:p-14 text-center text-white shadow-soft">
+
+          <div class="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
+            Procurando alguma coisa específica?
+          </h2>
+
+          <p class="mt-4 text-orange-50 text-lg max-w-2xl mx-auto">
+            Mande uma mensagem e pergunte. Assim você pode confirmar antes de sair de casa.
+          </p>
+
+          <a
+            data-whatsapp
+            href="#"
+            class="mt-8 inline-flex min-h-[60px] items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-900 font-black rounded-2xl px-7 sm:px-9 py-4 transition shadow-lg"
+          >
+            <i class="fa-brands fa-whatsapp text-[#25D366] text-2xl"></i>
+            Fazer Orçamento no WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer id="contato" class="bg-slate-950 text-white pt-16 pb-28 md:pb-8">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- MARCA -->
+        <div>
+          <div class="flex items-center gap-3">
+
+            <div class="w-11 h-11 rounded-xl bg-ideal-500 flex items-center justify-center">
+              <i class="fa-solid fa-pencil"></i>
+            </div>
+
+            <div>
+              <p class="font-black text-xl leading-none">Ideal</p>
+              <p class="text-[11px] uppercase tracking-[.15em] text-orange-300 font-bold mt-1">
+                Papelaria & Cia
+              </p>
+            </div>
+
+          </div>
+
+          <p class="mt-5 text-slate-400 leading-relaxed text-sm">
+            Papelaria, eletrônicos e serviços rápidos para facilitar seu dia a dia no bairro.
+          </p>
+
+          <a
+            href="https://www.instagram.com/idealpapelaria523"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-2 text-white hover:text-orange-300 transition"
+          >
+            <i class="fa-brands fa-instagram text-xl"></i>
+            @idealpapelaria523
+          </a>
+        </div>
+
+
+        <!-- ENDEREÇO -->
+        <div>
+          <h3 class="font-black text-lg mb-5">Onde estamos</h3>
+
+          <div class="flex gap-3 text-slate-400">
+            <i class="fa-solid fa-location-dot text-ideal-500 mt-1"></i>
+
+            <p class="leading-relaxed">
+              R. Agamenon Magalhães, 523<br>
+              Vila Santa Edwiges<br>
+              São Paulo - SP
+            </p>
+          </div>
+        </div>
+
+
+        <!-- HORÁRIO -->
+        <div>
+          <h3 class="font-black text-lg mb-5">Horário</h3>
+
+          <div class="flex gap-3 text-slate-400">
+            <i class="fa-regular fa-clock text-ideal-500 mt-1"></i>
+
+            <p class="leading-relaxed">
+              Segunda a Sábado<br>
+              <strong class="text-white">08:00 às 19:30</strong>
+            </p>
+          </div>
+        </div>
+
+
+        <!-- CONTATO -->
+        <div>
+          <h3 class="font-black text-lg mb-5">Fale com a Ideal</h3>
+
+          <a
+            data-whatsapp
+            href="#"
+            class="flex items-center gap-3 text-slate-300 hover:text-white transition"
+          >
+            <div class="w-10 h-10 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+            </div>
+
+            <div>
+              <p class="text-xs text-slate-500">WhatsApp</p>
+              <p class="font-bold">(11) 91406-2587</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="border-t border-slate-800 mt-12 pt-7 flex flex-col sm:flex-row justify-between gap-3 text-xs text-slate-500">
+        <p>
+          © <span id="year"></span> Ideal Papelaria & Cia.
+        </p>
+
+        <p>
+          Vila Santa Edwiges • São Paulo - SP
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =====================================================
+       WHATSAPP FLUTUANTE
+  ====================================================== -->
+  <a
+    data-whatsapp
+    href="#"
+    aria-label="Chamar a Ideal Papelaria no WhatsApp"
+    class="whatsapp-pulse fixed z-[60] right-4 bottom-5 md:right-6 md:bottom-6 w-16 h-16 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-whatsapp flex items-center justify-center transition hover:scale-105"
+  >
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+
+  <!-- MOBILE BOTTOM CTA -->
+  <div class="md:hidden fixed z-50 bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-slate-200 px-3 py-2.5 pr-24">
+
+    <a
+      data-whatsapp
+      href="#"
+      class="w-full min-h-[52px] bg-[#25D366] text-white rounded-xl flex items-center justify-center gap-2 font-extrabold shadow-md"
+    >
+      <i class="fa-brands fa-whatsapp text-xl"></i>
+      Fazer Orçamento Rápido
+    </a>
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+  <script>
+    // WhatsApp da Ideal Papelaria
+    const whatsappNumber = "5511914062587";
+
+    const whatsappMessage =
+      "Olá! Vim pelo site da Ideal Papelaria & Cia e gostaria de saber se vocês têm um produto/serviço.";
+
+    const whatsappURL =
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Aplica o link automaticamente em todos os CTAs
+    document.querySelectorAll("[data-whatsapp]").forEach(button => {
+      button.href = whatsappURL;
+      button.target = "_blank";
+      button.rel = "noopener noreferrer";
+    });
+
+    // Ano automático no footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll suave com compensação do header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        const targetId = this.getAttribute("href");
+
+        if (!targetId || targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          e.preventDefault();
+
+          const headerOffset = 85;
+          const position =
+            target.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerOffset;
+
+          window.scrollTo({
+            top: position,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
