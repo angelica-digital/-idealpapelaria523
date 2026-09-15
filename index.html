@@ -26,7 +26,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
 
-  <!-- GOOGLE FONTS -->
+  <!-- GOOGLE FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -45,74 +45,159 @@
 
           colors: {
             ideal: {
-              50: '#fff8ed',
-              100: '#ffefd4',
-              400: '#ff9d2e',
-              500: '#f58220',
-              600: '#dc6812',
-              700: '#b74d10',
-              dark: '#18212b'
+              orange: '#F58220',
+              orangeDark: '#D96812',
+
+              pink: '#EC4899',
+              pinkDark: '#DB2777',
+              pinkLight: '#FDF2F8',
+
+              dark: '#0F172A',
+              text: '#475569',
+
+              whatsapp: '#25D366'
             }
           },
 
           boxShadow: {
-            soft: '0 10px 40px rgba(15, 23, 42, 0.08)',
-            card: '0 12px 35px rgba(15, 23, 42, 0.07)',
-            whatsapp: '0 12px 30px rgba(37, 211, 102, .30)'
+            soft: '0 20px 60px rgba(15,23,42,.08)',
+            card: '0 14px 40px rgba(15,23,42,.07)',
+            premium: '0 25px 80px rgba(15,23,42,.12)',
+            whatsapp: '0 15px 35px rgba(37,211,102,.28)'
           }
         }
       }
     }
   </script>
 
+
   <style>
+
+    /* =====================================================
+       BASE
+    ====================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
 
     ::selection {
-      background: #f58220;
+      background: #EC4899;
       color: white;
+    }
+
+    /* =====================================================
+       BRAND GRADIENT
+    ====================================================== */
+
+    .brand-gradient {
+      background:
+        linear-gradient(
+          135deg,
+          #F58220 0%,
+          #F58220 42%,
+          #EC4899 100%
+        );
+    }
+
+    .brand-text {
+      background:
+        linear-gradient(
+          90deg,
+          #F58220,
+          #EC4899
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     /* =====================================================
        HERO
     ====================================================== */
 
-    .hero-grid {
-      background-image:
+    .hero {
+      position: relative;
+
+      background:
         radial-gradient(
-          circle at 15% 20%,
-          rgba(245,130,32,.13),
-          transparent 26%
+          circle at 8% 18%,
+          rgba(245,130,32,.12),
+          transparent 27%
         ),
         radial-gradient(
-          circle at 85% 80%,
-          rgba(251,191,36,.11),
-          transparent 28%
+          circle at 92% 28%,
+          rgba(236,72,153,.10),
+          transparent 25%
+        ),
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #fffdfb 100%
         );
     }
 
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      border-radius: 999px;
+
+      right: -220px;
+      top: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(245,130,32,.10),
+          rgba(236,72,153,.10)
+        );
+
+      filter: blur(5px);
+      pointer-events: none;
+    }
+
     /* =====================================================
-       CARDS
+       CATEGORY CARDS
     ====================================================== */
 
     .category-card {
       transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease;
+        transform .28s ease,
+        box-shadow .28s ease,
+        border-color .28s ease;
     }
 
     .category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 45px rgba(15,23,42,.10);
-      border-color: rgba(245,130,32,.25);
+      transform: translateY(-7px);
+      box-shadow: 0 22px 55px rgba(15,23,42,.11);
+    }
+
+    .category-orange:hover {
+      border-color: rgba(245,130,32,.35);
+    }
+
+    .category-pink:hover {
+      border-color: rgba(236,72,153,.35);
+    }
+
+    .category-blue:hover {
+      border-color: rgba(59,130,246,.35);
     }
 
     /* =====================================================
-       CARROSSEL
+       CAROUSEL
     ====================================================== */
 
     .carousel {
@@ -127,53 +212,68 @@
       display: flex;
       width: 100%;
       height: 100%;
-      transition: transform .45s cubic-bezier(.22,.61,.36,1);
+
+      transition:
+        transform .45s cubic-bezier(.22,.61,.36,1);
+
       will-change: transform;
     }
 
     .carousel-slide {
+      position: relative;
+
       flex: 0 0 100%;
+
       width: 100%;
       height: 100%;
-      position: relative;
+
       overflow: hidden;
     }
 
     .carousel-slide img {
       width: 100%;
       height: 100%;
+
       display: block;
+
       object-fit: cover;
-      transition: transform .5s ease;
+
+      transition:
+        transform .6s ease;
     }
 
     .category-card:hover .carousel-slide img {
-      transform: scale(1.025);
+      transform: scale(1.035);
     }
 
     .carousel-overlay {
       position: absolute;
       inset: 0;
+
       pointer-events: none;
 
       background:
         linear-gradient(
           to bottom,
-          rgba(0,0,0,.04),
-          transparent 45%,
-          rgba(0,0,0,.20)
+          rgba(0,0,0,.01),
+          transparent 50%,
+          rgba(0,0,0,.22)
         );
     }
 
-    /* SETAS */
+    /* =====================================================
+       CAROUSEL ARROWS
+    ====================================================== */
 
     .carousel-arrow {
       position: absolute;
+
       z-index: 10;
+
       top: 50%;
 
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
 
       border: none;
       border-radius: 999px;
@@ -183,21 +283,22 @@
       justify-content: center;
 
       background: rgba(255,255,255,.92);
-      color: #0f172a;
+      color: #0F172A;
 
-      box-shadow: 0 4px 15px rgba(0,0,0,.14);
+      box-shadow:
+        0 5px 18px rgba(0,0,0,.14);
 
       cursor: pointer;
 
-      transition:
-        transform .2s ease,
-        background .2s ease;
-
       backdrop-filter: blur(8px);
+
+      transition:
+        background .2s ease,
+        transform .2s ease;
     }
 
     .carousel-arrow:hover {
-      background: white;
+      background: #ffffff;
     }
 
     .carousel-prev {
@@ -210,32 +311,34 @@
       transform: translateY(-50%);
     }
 
-    /* CONTADOR */
+    /* =====================================================
+       COUNTER
+    ====================================================== */
 
     .carousel-counter {
       position: absolute;
 
+      z-index: 10;
+
       top: 12px;
       right: 12px;
 
-      z-index: 10;
+      padding: 5px 10px;
+
+      border-radius: 999px;
 
       background: rgba(15,23,42,.72);
       color: white;
 
       backdrop-filter: blur(8px);
 
-      border-radius: 999px;
-
-      padding: 5px 10px;
-
       font-size: 11px;
       font-weight: 800;
-
-      letter-spacing: .02em;
     }
 
-    /* INDICADORES */
+    /* =====================================================
+       DOTS
+    ====================================================== */
 
     .carousel-dots {
       position: absolute;
@@ -259,10 +362,11 @@
 
       padding: 0;
 
-      border: none;
+      border: 0;
       border-radius: 999px;
 
-      background: rgba(255,255,255,.55);
+      background:
+        rgba(255,255,255,.55);
 
       cursor: pointer;
 
@@ -272,8 +376,59 @@
     }
 
     .carousel-dot.active {
-      width: 22px;
+      width: 23px;
       background: white;
+    }
+
+    /* =====================================================
+       INSTAGRAM GRID
+    ====================================================== */
+
+    .instagram-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .instagram-photo img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .45s ease;
+    }
+
+    .instagram-photo:hover img {
+      transform: scale(1.06);
+    }
+
+    .instagram-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(245,130,32,.72),
+          rgba(236,72,153,.78)
+        );
+
+      color: white;
+
+      opacity: 0;
+
+      transition:
+        opacity .3s ease;
+    }
+
+    .instagram-photo:hover .instagram-overlay {
+      opacity: 1;
     }
 
     /* =====================================================
@@ -287,16 +442,19 @@
 
       inset: -5px;
 
-      border-radius: 9999px;
+      border-radius: 999px;
 
-      border: 2px solid rgba(37,211,102,.35);
+      border:
+        2px solid rgba(37,211,102,.35);
 
-      animation: pulse-ring 2s infinite;
+      animation:
+        pulse-ring 2s infinite;
 
       pointer-events: none;
     }
 
     @keyframes pulse-ring {
+
       0% {
         transform: scale(.9);
         opacity: .8;
@@ -307,6 +465,7 @@
         transform: scale(1.25);
         opacity: 0;
       }
+
     }
 
     /* =====================================================
@@ -314,48 +473,68 @@
     ====================================================== */
 
     @media (max-width: 640px) {
+
       .carousel-arrow {
         width: 36px;
         height: 36px;
       }
+
+      .hero::before {
+        display: none;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body class="bg-white text-slate-800 font-sans">
+
 
 <!-- =====================================================
      HEADER
 ====================================================== -->
 
 <header
-  class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100"
+  class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-100"
 >
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
 
-    <div class="h-[72px] flex items-center justify-between gap-4">
+    <div
+      class="h-[72px] flex items-center justify-between gap-4"
+    >
 
       <!-- LOGO -->
 
-      <a href="#inicio" class="flex items-center gap-3 shrink-0">
+      <a
+        href="#inicio"
+        class="flex items-center gap-3 shrink-0"
+      >
 
         <div
-          class="w-11 h-11 rounded-xl bg-ideal-500 text-white flex items-center justify-center shadow-md"
+          class="w-11 h-11 rounded-xl brand-gradient text-white flex items-center justify-center shadow-md"
         >
-          <i class="fa-solid fa-pencil text-lg"></i>
+
+          <i
+            class="fa-solid fa-pencil text-lg"
+          ></i>
+
         </div>
 
         <div class="leading-none">
 
           <span
-            class="block text-xl sm:text-2xl font-black tracking-tight text-slate-900"
+            class="block text-xl sm:text-2xl font-black tracking-tight text-slate-950"
           >
             Ideal
           </span>
 
           <span
-            class="text-[11px] sm:text-xs font-bold uppercase tracking-[.16em] text-ideal-500"
+            class="text-[10px] sm:text-xs font-extrabold uppercase tracking-[.16em] brand-text"
           >
             Papelaria & Cia
           </span>
@@ -364,7 +543,8 @@
 
       </a>
 
-      <!-- NAVEGAÇÃO DESKTOP -->
+
+      <!-- NAVIGATION -->
 
       <nav
         class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600"
@@ -372,35 +552,43 @@
 
         <a
           href="#categorias"
-          class="hover:text-ideal-500 transition"
+          class="hover:text-ideal-orange transition"
         >
           Produtos
         </a>
 
         <a
           href="#servicos"
-          class="hover:text-ideal-500 transition"
+          class="hover:text-ideal-orange transition"
         >
           Serviços
         </a>
 
         <a
           href="#avaliacoes"
-          class="hover:text-ideal-500 transition"
+          class="hover:text-ideal-orange transition"
         >
           Avaliações
         </a>
 
         <a
+          href="#instagram"
+          class="hover:text-ideal-pink transition"
+        >
+          Instagram
+        </a>
+
+        <a
           href="#contato"
-          class="hover:text-ideal-500 transition"
+          class="hover:text-ideal-orange transition"
         >
           Onde estamos
         </a>
 
       </nav>
 
-      <!-- CTA HEADER -->
+
+      <!-- WHATSAPP -->
 
       <a
         data-whatsapp
@@ -408,7 +596,9 @@
         class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl px-4 sm:px-5 py-3 transition shadow-md active:scale-[.98]"
       >
 
-        <i class="fa-brands fa-whatsapp text-xl"></i>
+        <i
+          class="fa-brands fa-whatsapp text-xl"
+        ></i>
 
         <span class="hidden sm:inline">
           Chamar no WhatsApp
@@ -429,61 +619,68 @@
 
 <main>
 
+
 <!-- =====================================================
      HERO
 ====================================================== -->
 
 <section
   id="inicio"
-  class="hero-grid relative overflow-hidden"
+  class="hero overflow-hidden"
 >
 
   <div
-    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28"
+    class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28"
   >
 
     <div
       class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
     >
 
-      <!-- COPY -->
+
+      <!-- HERO COPY -->
 
       <div class="max-w-2xl">
 
         <div
-          class="inline-flex items-center gap-2 px-3.5 py-2 bg-ideal-50 border border-orange-100 rounded-full text-sm font-bold text-ideal-700 mb-6"
+          class="inline-flex items-center gap-2 px-3.5 py-2 bg-orange-50 border border-orange-100 rounded-full text-sm font-bold text-orange-700 mb-6"
         >
 
-          <i class="fa-solid fa-location-dot text-ideal-500"></i>
+          <i
+            class="fa-solid fa-location-dot text-ideal-orange"
+          ></i>
 
           Vila Santa Edwiges • São Paulo
 
         </div>
 
+
         <h1
-          class="text-[2.6rem] leading-[1.03] sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-[-.045em] text-slate-950"
+          class="text-[2.55rem] leading-[1.03] sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-[-.045em] text-slate-950"
         >
 
           Tudo o que você precisa,
 
-          <span class="text-ideal-500">
+          <span class="text-ideal-orange">
             pertinho de você.
           </span>
 
         </h1>
 
+
         <p
           class="mt-6 text-lg sm:text-xl leading-relaxed text-slate-600 max-w-xl"
         >
 
-          Material escolar, papelaria fofa, eletrônicos e
-          serviços rápidos de balcão na
+          Material escolar, papelaria fofa, eletrônicos
+          e serviços rápidos de balcão na
 
           <strong class="text-slate-800">
             Vila Santa Edwiges / São Paulo.
           </strong>
 
         </p>
+
 
         <div
           class="mt-8 flex flex-col sm:flex-row gap-3"
@@ -495,24 +692,30 @@
             class="inline-flex min-h-[58px] items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-base sm:text-lg font-extrabold rounded-2xl px-7 py-4 shadow-whatsapp transition hover:-translate-y-0.5 active:scale-[.98]"
           >
 
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <i
+              class="fa-brands fa-whatsapp text-2xl"
+            ></i>
 
             Fazer Orçamento Rápido
 
           </a>
 
+
           <a
             href="#categorias"
-            class="inline-flex min-h-[58px] items-center justify-center gap-2 bg-white border border-slate-200 hover:border-slate-300 text-slate-800 font-bold rounded-2xl px-7 py-4 transition"
+            class="inline-flex min-h-[58px] items-center justify-center gap-2 bg-white border border-slate-200 hover:border-pink-200 text-slate-800 font-bold rounded-2xl px-7 py-4 transition"
           >
 
             Ver o que você encontra
 
-            <i class="fa-solid fa-arrow-down text-sm"></i>
+            <i
+              class="fa-solid fa-arrow-down text-sm"
+            ></i>
 
           </a>
 
         </div>
+
 
         <!-- TRUST -->
 
@@ -525,31 +728,45 @@
             <span
               class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center"
             >
-              <i class="fa-solid fa-check text-green-600 text-xs"></i>
+
+              <i
+                class="fa-solid fa-check text-green-600 text-xs"
+              ></i>
+
             </span>
 
             Atendimento local
 
           </div>
 
+
           <div class="flex items-center gap-2">
 
             <span
-              class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center"
+              class="w-6 h-6 bg-pink-50 rounded-full flex items-center justify-center"
             >
-              <i class="fa-solid fa-check text-green-600 text-xs"></i>
+
+              <i
+                class="fa-solid fa-heart text-ideal-pink text-xs"
+              ></i>
+
             </span>
 
-            Resposta pelo WhatsApp
+            Variedade na loja
 
           </div>
 
+
           <div class="flex items-center gap-2">
 
             <span
-              class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center"
+              class="w-6 h-6 bg-orange-50 rounded-full flex items-center justify-center"
             >
-              <i class="fa-solid fa-check text-green-600 text-xs"></i>
+
+              <i
+                class="fa-solid fa-clock text-ideal-orange text-xs"
+              ></i>
+
             </span>
 
             Seg. a Sáb.
@@ -566,35 +783,52 @@
       <div class="relative">
 
         <div
-          class="absolute -top-12 -right-12 w-56 h-56 bg-orange-200/40 rounded-full blur-3xl"
+          class="absolute -top-12 -right-10 w-56 h-56 bg-pink-200/40 rounded-full blur-3xl"
         ></div>
 
         <div
-          class="absolute -bottom-10 -left-10 w-56 h-56 bg-yellow-100/70 rounded-full blur-3xl"
+          class="absolute -bottom-10 -left-10 w-56 h-56 bg-orange-200/50 rounded-full blur-3xl"
         ></div>
 
+
         <div
-          class="relative bg-white rounded-[2rem] border border-slate-100 shadow-soft p-5 sm:p-7"
+          class="relative bg-white rounded-[2rem] border border-slate-100 shadow-premium p-5 sm:p-7"
         >
 
-          <div class="grid grid-cols-2 gap-4">
+          <div
+            class="grid grid-cols-2 gap-4"
+          >
+
+            <!-- BIG CARD -->
 
             <div
-              class="col-span-2 bg-gradient-to-br from-ideal-500 to-orange-400 rounded-3xl p-7 text-white min-h-[190px] flex flex-col justify-between"
+              class="col-span-2 brand-gradient rounded-3xl p-7 text-white min-h-[190px] flex flex-col justify-between overflow-hidden relative"
             >
 
               <div
-                class="w-14 h-14 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center"
+                class="absolute w-40 h-40 rounded-full bg-white/10 -right-12 -top-14"
+              ></div>
+
+              <div
+                class="absolute w-24 h-24 rounded-full bg-white/10 right-20 bottom-[-45px]"
+              ></div>
+
+
+              <div
+                class="relative w-14 h-14 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center"
               >
 
-                <i class="fa-solid fa-pen-ruler text-2xl"></i>
+                <i
+                  class="fa-solid fa-pen-ruler text-2xl"
+                ></i>
 
               </div>
 
-              <div>
+
+              <div class="relative">
 
                 <p
-                  class="text-orange-100 text-sm font-semibold mb-1"
+                  class="text-white/80 text-sm font-semibold mb-1"
                 >
                   Para escola, trabalho e dia a dia
                 </p>
@@ -602,7 +836,7 @@
                 <h2
                   class="text-2xl sm:text-3xl font-black"
                 >
-                  Papelaria completa perto de você.
+                  Tudo em um só lugar.
                 </h2>
 
               </div>
@@ -610,42 +844,62 @@
             </div>
 
 
+            <!-- PINK -->
+
             <div
-              class="bg-pink-50 rounded-3xl p-5 min-h-[155px]"
+              class="bg-[#FDF2F8] border border-pink-100 rounded-3xl p-5 min-h-[155px]"
             >
 
               <div
-                class="w-11 h-11 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center mb-5"
+                class="w-11 h-11 rounded-xl bg-white text-ideal-pink shadow-sm flex items-center justify-center mb-5"
               >
-                <i class="fa-solid fa-heart"></i>
+
+                <i
+                  class="fa-solid fa-heart"
+                ></i>
+
               </div>
 
-              <p class="font-extrabold text-slate-900">
+              <p
+                class="font-extrabold text-slate-900"
+              >
                 Papelaria Fofa
               </p>
 
-              <p class="text-sm text-slate-500 mt-1">
+              <p
+                class="text-sm text-slate-500 mt-1"
+              >
                 Agendas, canetas e mimos.
               </p>
 
             </div>
 
 
+            <!-- BLUE -->
+
             <div
-              class="bg-blue-50 rounded-3xl p-5 min-h-[155px]"
+              class="bg-blue-50 border border-blue-100 rounded-3xl p-5 min-h-[155px]"
             >
 
               <div
-                class="w-11 h-11 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"
+                class="w-11 h-11 rounded-xl bg-white text-blue-600 shadow-sm flex items-center justify-center mb-5"
               >
-                <i class="fa-solid fa-headphones"></i>
+
+                <i
+                  class="fa-solid fa-headphones"
+                ></i>
+
               </div>
 
-              <p class="font-extrabold text-slate-900">
+              <p
+                class="font-extrabold text-slate-900"
+              >
                 Eletrônicos
               </p>
 
-              <p class="text-sm text-slate-500 mt-1">
+              <p
+                class="text-sm text-slate-500 mt-1"
+              >
                 Fones, cabos e acessórios.
               </p>
 
@@ -653,18 +907,25 @@
 
           </div>
 
-          <!-- RATING -->
+
+          <!-- GOOGLE -->
 
           <div
             class="absolute -bottom-6 -left-2 sm:-left-7 bg-white shadow-card border border-slate-100 rounded-2xl px-5 py-4"
           >
 
-            <div class="flex items-center gap-3">
+            <div
+              class="flex items-center gap-3"
+            >
 
               <div
                 class="w-11 h-11 bg-yellow-50 rounded-xl flex items-center justify-center text-yellow-500"
               >
-                <i class="fa-solid fa-star text-xl"></i>
+
+                <i
+                  class="fa-solid fa-star text-xl"
+                ></i>
+
               </div>
 
               <div>
@@ -672,10 +933,15 @@
                 <div
                   class="font-black text-lg leading-none text-slate-900"
                 >
+
                   4.7
-                  <span class="text-yellow-400">
+
+                  <span
+                    class="text-yellow-400 text-sm"
+                  >
                     ★★★★★
                   </span>
+
                 </div>
 
                 <div
@@ -702,7 +968,7 @@
 
 
 <!-- =====================================================
-     CATEGORIAS + CARROSSÉIS
+     CATEGORIAS
 ====================================================== -->
 
 <section
@@ -714,23 +980,23 @@
     class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
   >
 
-    <!-- CABEÇALHO -->
-
     <div
       class="max-w-2xl mx-auto text-center"
     >
 
       <span
-        class="text-sm uppercase tracking-[.2em] text-ideal-500 font-extrabold"
+        class="inline-flex items-center gap-2 text-sm uppercase tracking-[.2em] font-extrabold brand-text"
       >
         Ideal Papelaria & Cia
       </span>
+
 
       <h2
         class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950"
       >
         O que você encontra por aqui
       </h2>
+
 
       <p
         class="mt-4 text-slate-600 text-lg"
@@ -746,12 +1012,13 @@
       class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch"
     >
 
+
 <!-- =====================================================
-     CARD 01
+     CARD 01 — MATERIAL
 ====================================================== -->
 
 <article
-  class="category-card overflow-hidden bg-white border border-slate-100 rounded-3xl flex flex-col"
+  class="category-card category-orange overflow-hidden bg-white border border-slate-100 rounded-3xl flex flex-col"
 >
 
   <div
@@ -764,7 +1031,7 @@
       <div class="carousel-slide">
         <img
           src="img/material-01.webp"
-          alt="Cadernos e materiais escolares da Ideal Papelaria"
+          alt="Materiais escolares da Ideal Papelaria"
           loading="lazy"
         >
       </div>
@@ -780,7 +1047,7 @@
       <div class="carousel-slide">
         <img
           src="img/material-03.webp"
-          alt="Papéis e produtos Canson"
+          alt="Papéis Canson"
           loading="lazy"
         >
       </div>
@@ -796,55 +1063,84 @@
       <div class="carousel-slide">
         <img
           src="img/material-05.webp"
-          alt="Colas e materiais para escritório"
+          alt="Produtos de escritório"
           loading="lazy"
         >
       </div>
 
     </div>
 
+
     <div class="carousel-overlay"></div>
 
+
     <div class="carousel-counter">
-      <span class="current-slide">1</span>
+
+      <span class="current-slide">
+        1
+      </span>
+
       /
-      <span class="total-slides">5</span>
+
+      <span class="total-slides">
+        5
+      </span>
+
     </div>
+
 
     <button
       class="carousel-arrow carousel-prev"
       aria-label="Imagem anterior"
       type="button"
     >
-      <i class="fa-solid fa-chevron-left"></i>
+
+      <i
+        class="fa-solid fa-chevron-left"
+      ></i>
+
     </button>
+
 
     <button
       class="carousel-arrow carousel-next"
       aria-label="Próxima imagem"
       type="button"
     >
-      <i class="fa-solid fa-chevron-right"></i>
+
+      <i
+        class="fa-solid fa-chevron-right"
+      ></i>
+
     </button>
+
 
     <div class="carousel-dots"></div>
 
   </div>
 
 
-  <div class="p-6 flex flex-col flex-1">
+  <div
+    class="p-6 flex flex-col flex-1"
+  >
 
     <div
-      class="w-12 h-12 bg-orange-50 text-ideal-500 rounded-xl flex items-center justify-center text-xl mb-5"
+      class="w-12 h-12 bg-orange-50 text-ideal-orange rounded-xl flex items-center justify-center text-xl mb-5"
     >
-      <i class="fa-solid fa-book-open"></i>
+
+      <i
+        class="fa-solid fa-book-open"
+      ></i>
+
     </div>
+
 
     <h3
       class="text-xl font-black text-slate-900"
     >
       Material Escolar & Escritório
     </h3>
+
 
     <p
       class="mt-3 text-slate-500 leading-relaxed"
@@ -853,37 +1149,28 @@
       sem complicação.
     </p>
 
+
     <div
       class="mt-5 flex flex-wrap gap-2"
     >
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
         Cadernos Tilibra
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
         Faber-Castell
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
         Canson
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
         Tintas
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
         TekBond
       </span>
 
@@ -895,11 +1182,11 @@
 
 
 <!-- =====================================================
-     CARD 02
+     CARD 02 — PAPELARIA FOFA
 ====================================================== -->
 
 <article
-  class="category-card overflow-hidden bg-white border border-slate-100 rounded-3xl flex flex-col"
+  class="category-card category-pink overflow-hidden bg-white border border-pink-100 rounded-3xl flex flex-col"
 >
 
   <div
@@ -928,7 +1215,7 @@
       <div class="carousel-slide">
         <img
           src="img/fofa-03.webp"
-          alt="Marca-textos e itens de papelaria"
+          alt="Marca-textos"
           loading="lazy"
         >
       </div>
@@ -951,48 +1238,77 @@
 
     </div>
 
+
     <div class="carousel-overlay"></div>
 
+
     <div class="carousel-counter">
-      <span class="current-slide">1</span>
+
+      <span class="current-slide">
+        1
+      </span>
+
       /
-      <span class="total-slides">5</span>
+
+      <span class="total-slides">
+        5
+      </span>
+
     </div>
+
 
     <button
       class="carousel-arrow carousel-prev"
       aria-label="Imagem anterior"
       type="button"
     >
-      <i class="fa-solid fa-chevron-left"></i>
+
+      <i
+        class="fa-solid fa-chevron-left"
+      ></i>
+
     </button>
+
 
     <button
       class="carousel-arrow carousel-next"
       aria-label="Próxima imagem"
       type="button"
     >
-      <i class="fa-solid fa-chevron-right"></i>
+
+      <i
+        class="fa-solid fa-chevron-right"
+      ></i>
+
     </button>
+
 
     <div class="carousel-dots"></div>
 
   </div>
 
 
-  <div class="p-6 flex flex-col flex-1">
+  <div
+    class="p-6 flex flex-col flex-1"
+  >
 
     <div
-      class="w-12 h-12 bg-pink-50 text-pink-500 rounded-xl flex items-center justify-center text-xl mb-5"
+      class="w-12 h-12 bg-pink-50 text-ideal-pink rounded-xl flex items-center justify-center text-xl mb-5"
     >
-      <i class="fa-solid fa-gift"></i>
+
+      <i
+        class="fa-solid fa-gift"
+      ></i>
+
     </div>
+
 
     <h3
       class="text-xl font-black text-slate-900"
     >
       Papelaria Fofa & Presentes
     </h3>
+
 
     <p
       class="mt-3 text-slate-500 leading-relaxed"
@@ -1001,31 +1317,24 @@
       ou presentear.
     </p>
 
+
     <div
       class="mt-5 flex flex-wrap gap-2"
     >
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-pink-50 text-pink-700 rounded-full px-3 py-1.5 text-xs font-semibold">
         Canetas coloridas
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-pink-50 text-pink-700 rounded-full px-3 py-1.5 text-xs font-semibold">
         Agendas
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-pink-50 text-pink-700 rounded-full px-3 py-1.5 text-xs font-semibold">
         Mimos
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-pink-50 text-pink-700 rounded-full px-3 py-1.5 text-xs font-semibold">
         Itens criativos
       </span>
 
@@ -1037,11 +1346,11 @@
 
 
 <!-- =====================================================
-     CARD 03
+     CARD 03 — ELETRÔNICOS
 ====================================================== -->
 
 <article
-  class="category-card overflow-hidden bg-white border border-slate-100 rounded-3xl flex flex-col"
+  class="category-card category-blue overflow-hidden bg-white border border-blue-100 rounded-3xl flex flex-col"
 >
 
   <div
@@ -1054,7 +1363,7 @@
       <div class="carousel-slide">
         <img
           src="img/eletronicos-01.webp"
-          alt="Fones Bluetooth Kaidi"
+          alt="Fones Bluetooth"
           loading="lazy"
         >
       </div>
@@ -1070,7 +1379,7 @@
       <div class="carousel-slide">
         <img
           src="img/eletronicos-03.webp"
-          alt="Carregadores e acessórios"
+          alt="Carregadores"
           loading="lazy"
         >
       </div>
@@ -1093,48 +1402,77 @@
 
     </div>
 
+
     <div class="carousel-overlay"></div>
 
+
     <div class="carousel-counter">
-      <span class="current-slide">1</span>
+
+      <span class="current-slide">
+        1
+      </span>
+
       /
-      <span class="total-slides">5</span>
+
+      <span class="total-slides">
+        5
+      </span>
+
     </div>
+
 
     <button
       class="carousel-arrow carousel-prev"
       aria-label="Imagem anterior"
       type="button"
     >
-      <i class="fa-solid fa-chevron-left"></i>
+
+      <i
+        class="fa-solid fa-chevron-left"
+      ></i>
+
     </button>
+
 
     <button
       class="carousel-arrow carousel-next"
       aria-label="Próxima imagem"
       type="button"
     >
-      <i class="fa-solid fa-chevron-right"></i>
+
+      <i
+        class="fa-solid fa-chevron-right"
+      ></i>
+
     </button>
+
 
     <div class="carousel-dots"></div>
 
   </div>
 
 
-  <div class="p-6 flex flex-col flex-1">
+  <div
+    class="p-6 flex flex-col flex-1"
+  >
 
     <div
       class="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center text-xl mb-5"
     >
-      <i class="fa-solid fa-headphones-simple"></i>
+
+      <i
+        class="fa-solid fa-headphones-simple"
+      ></i>
+
     </div>
+
 
     <h3
       class="text-xl font-black text-slate-900"
     >
       Eletrônicos & Acessórios
     </h3>
+
 
     <p
       class="mt-3 text-slate-500 leading-relaxed"
@@ -1143,31 +1481,24 @@
       trabalho e rotina.
     </p>
 
+
     <div
       class="mt-5 flex flex-wrap gap-2"
     >
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-blue-50 text-blue-700 rounded-full px-3 py-1.5 text-xs font-semibold">
         Fones Kaidi
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-blue-50 text-blue-700 rounded-full px-3 py-1.5 text-xs font-semibold">
         Bluetooth
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-blue-50 text-blue-700 rounded-full px-3 py-1.5 text-xs font-semibold">
         Cabos USB
       </span>
 
-      <span
-        class="bg-slate-100 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-blue-50 text-blue-700 rounded-full px-3 py-1.5 text-xs font-semibold">
         Caixas de som
       </span>
 
@@ -1179,12 +1510,12 @@
 
 
 <!-- =====================================================
-     CARD 04
+     CARD 04 — SERVIÇOS
 ====================================================== -->
 
 <article
   id="servicos"
-  class="category-card overflow-hidden bg-slate-900 text-white rounded-3xl flex flex-col"
+  class="category-card overflow-hidden bg-slate-950 text-white rounded-3xl flex flex-col"
 >
 
   <div
@@ -1205,7 +1536,7 @@
       <div class="carousel-slide">
         <img
           src="img/servicos-02.webp"
-          alt="Serviço de encadernação"
+          alt="Encadernação"
           loading="lazy"
         >
       </div>
@@ -1229,55 +1560,84 @@
       <div class="carousel-slide">
         <img
           src="img/servicos-05.webp"
-          alt="Serviços rápidos da Ideal Papelaria"
+          alt="Serviços da Ideal Papelaria"
           loading="lazy"
         >
       </div>
 
     </div>
 
+
     <div class="carousel-overlay"></div>
 
+
     <div class="carousel-counter">
-      <span class="current-slide">1</span>
+
+      <span class="current-slide">
+        1
+      </span>
+
       /
-      <span class="total-slides">5</span>
+
+      <span class="total-slides">
+        5
+      </span>
+
     </div>
+
 
     <button
       class="carousel-arrow carousel-prev"
       aria-label="Imagem anterior"
       type="button"
     >
-      <i class="fa-solid fa-chevron-left"></i>
+
+      <i
+        class="fa-solid fa-chevron-left"
+      ></i>
+
     </button>
+
 
     <button
       class="carousel-arrow carousel-next"
       aria-label="Próxima imagem"
       type="button"
     >
-      <i class="fa-solid fa-chevron-right"></i>
+
+      <i
+        class="fa-solid fa-chevron-right"
+      ></i>
+
     </button>
+
 
     <div class="carousel-dots"></div>
 
   </div>
 
 
-  <div class="p-6 flex flex-col flex-1">
+  <div
+    class="p-6 flex flex-col flex-1"
+  >
 
     <div
       class="w-12 h-12 bg-white/10 text-orange-300 rounded-xl flex items-center justify-center text-xl mb-5"
     >
-      <i class="fa-solid fa-print"></i>
+
+      <i
+        class="fa-solid fa-print"
+      ></i>
+
     </div>
+
 
     <h3
       class="text-xl font-black"
     >
       Serviços Rápidos de Balcão
     </h3>
+
 
     <p
       class="mt-3 text-slate-300 leading-relaxed"
@@ -1286,37 +1646,28 @@
       sem precisar ir longe.
     </p>
 
+
     <div
       class="mt-5 flex flex-wrap gap-2"
     >
 
-      <span
-        class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
         Xerox
       </span>
 
-      <span
-        class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
         Impressões
       </span>
 
-      <span
-        class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
         Encadernação
       </span>
 
-      <span
-        class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
         Cópia de chaves
       </span>
 
-      <span
-        class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold"
-      >
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
         Fotos 3x4
       </span>
 
@@ -1329,13 +1680,16 @@
     </div>
 
 
-    <!-- CTA CATEGORIAS -->
+    <!-- CTA -->
 
     <div class="mt-12 text-center">
 
-      <p class="text-slate-600 mb-4">
+      <p
+        class="text-slate-600 mb-4"
+      >
         Quer saber se temos o que você procura?
       </p>
+
 
       <a
         data-whatsapp
@@ -1343,7 +1697,9 @@
         class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl px-7 py-4 transition shadow-lg"
       >
 
-        <i class="fa-brands fa-whatsapp text-xl"></i>
+        <i
+          class="fa-brands fa-whatsapp text-xl"
+        ></i>
 
         Perguntar pelo WhatsApp
 
@@ -1360,17 +1716,23 @@
      DIFERENCIAL LOCAL
 ====================================================== -->
 
-<section class="py-20 md:py-28">
+<section
+  class="py-20 md:py-28"
+>
 
   <div
     class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
   >
 
     <div
-      class="overflow-hidden rounded-[2rem] bg-ideal-dark text-white"
+      class="overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-premium"
     >
 
-      <div class="grid lg:grid-cols-2">
+      <div
+        class="grid lg:grid-cols-2"
+      >
+
+        <!-- COPY -->
 
         <div
           class="p-8 sm:p-12 lg:p-16"
@@ -1380,11 +1742,14 @@
             class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm font-bold text-orange-200"
           >
 
-            <i class="fa-solid fa-house"></i>
+            <i
+              class="fa-solid fa-house"
+            ></i>
 
             Comércio do bairro
 
           </span>
+
 
           <h2
             class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight"
@@ -1392,11 +1757,12 @@
 
             O que você precisa pode estar
 
-            <span class="text-orange-300">
+            <span class="brand-text">
               a poucos minutos de casa.
             </span>
 
           </h2>
+
 
           <p
             class="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl"
@@ -1410,13 +1776,16 @@
 
           </p>
 
+
           <a
             data-whatsapp
             href="#"
-            class="mt-8 inline-flex items-center justify-center gap-3 bg-ideal-500 hover:bg-ideal-600 text-white font-extrabold rounded-2xl px-7 py-4 transition"
+            class="mt-8 inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl px-7 py-4 transition"
           >
 
-            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <i
+              class="fa-brands fa-whatsapp text-xl"
+            ></i>
 
             Consultar um produto
 
@@ -1425,8 +1794,10 @@
         </div>
 
 
+        <!-- VISUAL -->
+
         <div
-          class="bg-gradient-to-br from-ideal-500 to-orange-400 p-8 sm:p-12 lg:p-16 flex items-center"
+          class="brand-gradient p-8 sm:p-12 lg:p-16 flex items-center"
         >
 
           <div
@@ -1434,7 +1805,7 @@
           >
 
             <div
-              class="bg-white/15 backdrop-blur rounded-3xl p-5 sm:p-6"
+              class="bg-white/15 backdrop-blur rounded-3xl p-5 sm:p-6 border border-white/10"
             >
 
               <i
@@ -1448,7 +1819,7 @@
               </p>
 
               <p
-                class="text-orange-100 text-sm mt-1"
+                class="text-white/75 text-sm mt-1"
               >
                 Vila Santa Edwiges
               </p>
@@ -1457,7 +1828,7 @@
 
 
             <div
-              class="bg-white/15 backdrop-blur rounded-3xl p-5 sm:p-6"
+              class="bg-white/15 backdrop-blur rounded-3xl p-5 sm:p-6 border border-white/10"
             >
 
               <i
@@ -1471,7 +1842,7 @@
               </p>
 
               <p
-                class="text-orange-100 text-sm mt-1"
+                class="text-white/75 text-sm mt-1"
               >
                 Direto pelo WhatsApp
               </p>
@@ -1488,10 +1859,15 @@
               >
 
                 <div
-                  class="w-12 h-12 rounded-2xl bg-orange-50 text-ideal-500 flex items-center justify-center shrink-0"
+                  class="w-12 h-12 rounded-2xl bg-pink-50 text-ideal-pink flex items-center justify-center shrink-0"
                 >
-                  <i class="fa-solid fa-clock"></i>
+
+                  <i
+                    class="fa-solid fa-clock"
+                  ></i>
+
                 </div>
+
 
                 <div>
 
@@ -1527,19 +1903,229 @@
 
 
 <!-- =====================================================
+     INSTAGRAM
+====================================================== -->
+
+<section
+  id="instagram"
+  class="py-20 md:py-28 bg-[#FDF7FA]"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="grid lg:grid-cols-[.85fr_1.15fr] gap-10 lg:gap-14 items-center"
+    >
+
+
+      <!-- COPY -->
+
+      <div>
+
+        <div
+          class="inline-flex items-center gap-2 bg-white border border-pink-100 text-ideal-pink rounded-full px-4 py-2 text-sm font-extrabold"
+        >
+
+          <i
+            class="fa-brands fa-instagram text-lg"
+          ></i>
+
+          @idealpapelaria523
+
+        </div>
+
+
+        <h2
+          class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950"
+        >
+
+          Veja o que está chegando
+
+          <span class="brand-text">
+            na Ideal.
+          </span>
+
+        </h2>
+
+
+        <p
+          class="mt-5 text-lg text-slate-600 leading-relaxed"
+        >
+          Acompanhe novidades, produtos, papelaria,
+          eletrônicos e itens que chegam à loja.
+        </p>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-7 inline-flex items-center justify-center gap-3 brand-gradient text-white font-extrabold rounded-2xl px-7 py-4 shadow-lg transition hover:-translate-y-0.5"
+        >
+
+          <i
+            class="fa-brands fa-instagram text-xl"
+          ></i>
+
+          Seguir no Instagram
+
+        </a>
+
+      </div>
+
+
+      <!-- INSTAGRAM GRID -->
+
+      <div
+        class="grid grid-cols-3 gap-2 sm:gap-3 bg-white p-2 sm:p-3 rounded-[2rem] shadow-soft border border-pink-100"
+      >
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-pink-50"
+        >
+
+          <img
+            src="img/instagram-01.webp"
+            alt="Produto da Ideal Papelaria no Instagram"
+            loading="lazy"
+          >
+
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-orange-50"
+        >
+
+          <img
+            src="img/instagram-02.webp"
+            alt="Novidade da Ideal Papelaria"
+            loading="lazy"
+          >
+
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-pink-50"
+        >
+
+          <img
+            src="img/instagram-03.webp"
+            alt="Produto disponível na Ideal Papelaria"
+            loading="lazy"
+          >
+
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-orange-50"
+        >
+
+          <img
+            src="img/instagram-04.webp"
+            alt="Papelaria e presentes"
+            loading="lazy"
+          >
+
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-pink-50"
+        >
+
+          <img
+            src="img/instagram-05.webp"
+            alt="Eletrônicos e acessórios"
+            loading="lazy"
+          >
+
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-orange-50"
+        >
+
+          <img
+            src="img/instagram-06.webp"
+            alt="Novidades da loja"
+            loading="lazy"
+          >
+
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
      AVALIAÇÕES
 ====================================================== -->
 
 <section
   id="avaliacoes"
-  class="py-20 md:py-28 bg-[#fffaf4]"
+  class="py-20 md:py-28 bg-white"
 >
 
   <div
     class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
   >
 
-    <div class="text-center">
+    <div
+      class="text-center"
+    >
 
       <div
         class="inline-flex items-center gap-1 text-yellow-400 text-2xl mb-4"
@@ -1553,11 +2139,13 @@
 
       </div>
 
+
       <h2
         class="text-4xl sm:text-5xl font-black text-slate-950"
       >
         4.7 no Google
       </h2>
+
 
       <p
         class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto"
@@ -1573,10 +2161,9 @@
       class="mt-12 grid md:grid-cols-3 gap-5"
     >
 
-      <!-- DEPOIMENTO 01 -->
 
       <article
-        class="bg-white rounded-3xl p-7 border border-orange-100 shadow-card"
+        class="bg-white rounded-3xl p-7 border border-slate-100 shadow-card"
       >
 
         <div
@@ -1597,7 +2184,7 @@
         >
 
           <div
-            class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-black text-ideal-600"
+            class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center font-black text-ideal-orange"
           >
             C
           </div>
@@ -1623,10 +2210,8 @@
       </article>
 
 
-      <!-- DEPOIMENTO 02 -->
-
       <article
-        class="bg-white rounded-3xl p-7 border border-orange-100 shadow-card"
+        class="bg-white rounded-3xl p-7 border border-pink-100 shadow-card"
       >
 
         <div
@@ -1647,7 +2232,7 @@
         >
 
           <div
-            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-black text-blue-600"
+            class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center font-black text-ideal-pink"
           >
             C
           </div>
@@ -1673,10 +2258,8 @@
       </article>
 
 
-      <!-- DEPOIMENTO 03 -->
-
       <article
-        class="bg-white rounded-3xl p-7 border border-orange-100 shadow-card"
+        class="bg-white rounded-3xl p-7 border border-slate-100 shadow-card"
       >
 
         <div
@@ -1697,7 +2280,7 @@
         >
 
           <div
-            class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center font-black text-pink-600"
+            class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center font-black text-blue-600"
           >
             C
           </div>
@@ -1728,7 +2311,7 @@
     <!-- NFC -->
 
     <div
-      class="mt-10 bg-white border border-orange-100 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6"
+      class="mt-10 bg-[#FDF7FA] border border-pink-100 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6"
     >
 
       <div
@@ -1736,7 +2319,7 @@
       >
 
         <div
-          class="w-16 h-16 bg-ideal-50 text-ideal-500 rounded-2xl flex items-center justify-center shrink-0"
+          class="w-16 h-16 brand-gradient text-white rounded-2xl flex items-center justify-center shrink-0"
         >
 
           <i
@@ -1744,6 +2327,7 @@
           ></i>
 
         </div>
+
 
         <div>
 
@@ -1763,6 +2347,7 @@
         </div>
 
       </div>
+
 
       <div
         class="flex items-center gap-2 text-yellow-400 font-black text-lg whitespace-nowrap"
@@ -1784,61 +2369,82 @@
 
 
 <!-- =====================================================
-     CTA FINAL
+     FINAL CTA
 ====================================================== -->
 
-<section class="py-20">
+<section
+  class="py-20 bg-slate-50"
+>
 
   <div
     class="max-w-5xl mx-auto px-4 sm:px-6"
   >
 
     <div
-      class="bg-gradient-to-br from-ideal-500 to-orange-400 rounded-[2rem] px-6 py-12 sm:p-14 text-center text-white shadow-soft"
+      class="brand-gradient relative overflow-hidden rounded-[2rem] px-6 py-12 sm:p-14 text-center text-white shadow-premium"
     >
 
       <div
-        class="w-16 h-16 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-6"
+        class="absolute w-64 h-64 rounded-full bg-white/10 -top-32 -right-24"
+      ></div>
+
+      <div
+        class="absolute w-44 h-44 rounded-full bg-white/10 -bottom-24 -left-16"
+      ></div>
+
+
+      <div
+        class="relative"
       >
 
-        <i
-          class="fa-brands fa-whatsapp text-3xl"
-        ></i>
+        <div
+          class="w-16 h-16 mx-auto bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mb-6"
+        >
+
+          <i
+            class="fa-brands fa-whatsapp text-3xl"
+          ></i>
+
+        </div>
+
+
+        <h2
+          class="text-3xl sm:text-5xl font-black tracking-tight"
+        >
+          Procurando alguma coisa específica?
+        </h2>
+
+
+        <p
+          class="mt-4 text-white/85 text-lg max-w-2xl mx-auto"
+        >
+          Mande uma mensagem e pergunte.
+          Assim você pode confirmar antes de sair de casa.
+        </p>
+
+
+        <a
+          data-whatsapp
+          href="#"
+          class="mt-8 inline-flex min-h-[60px] items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-950 font-black rounded-2xl px-7 sm:px-9 py-4 transition shadow-lg"
+        >
+
+          <i
+            class="fa-brands fa-whatsapp text-[#25D366] text-2xl"
+          ></i>
+
+          Fazer Orçamento no WhatsApp
+
+        </a>
 
       </div>
-
-      <h2
-        class="text-3xl sm:text-5xl font-black tracking-tight"
-      >
-        Procurando alguma coisa específica?
-      </h2>
-
-      <p
-        class="mt-4 text-orange-50 text-lg max-w-2xl mx-auto"
-      >
-        Mande uma mensagem e pergunte.
-        Assim você pode confirmar antes de sair de casa.
-      </p>
-
-      <a
-        data-whatsapp
-        href="#"
-        class="mt-8 inline-flex min-h-[60px] items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-900 font-black rounded-2xl px-7 sm:px-9 py-4 transition shadow-lg"
-      >
-
-        <i
-          class="fa-brands fa-whatsapp text-[#25D366] text-2xl"
-        ></i>
-
-        Fazer Orçamento no WhatsApp
-
-      </a>
 
     </div>
 
   </div>
 
 </section>
+
 
 </main>
 
@@ -1860,7 +2466,8 @@
       class="grid md:grid-cols-2 lg:grid-cols-4 gap-10"
     >
 
-      <!-- MARCA -->
+
+      <!-- BRAND -->
 
       <div>
 
@@ -1869,7 +2476,7 @@
         >
 
           <div
-            class="w-11 h-11 rounded-xl bg-ideal-500 flex items-center justify-center"
+            class="w-11 h-11 rounded-xl brand-gradient flex items-center justify-center"
           >
 
             <i
@@ -1877,6 +2484,7 @@
             ></i>
 
           </div>
+
 
           <div>
 
@@ -1887,7 +2495,7 @@
             </p>
 
             <p
-              class="text-[11px] uppercase tracking-[.15em] text-orange-300 font-bold mt-1"
+              class="text-[11px] uppercase tracking-[.15em] text-pink-300 font-bold mt-1"
             >
               Papelaria & Cia
             </p>
@@ -1896,6 +2504,7 @@
 
         </div>
 
+
         <p
           class="mt-5 text-slate-400 leading-relaxed text-sm"
         >
@@ -1903,15 +2512,16 @@
           para facilitar seu dia a dia no bairro.
         </p>
 
+
         <a
           href="https://www.instagram.com/idealpapelaria523"
           target="_blank"
           rel="noopener noreferrer"
-          class="mt-5 inline-flex items-center gap-2 text-white hover:text-orange-300 transition"
+          class="mt-5 inline-flex items-center gap-2 text-white hover:text-pink-300 transition"
         >
 
           <i
-            class="fa-brands fa-instagram text-xl"
+            class="fa-brands fa-instagram text-xl text-ideal-pink"
           ></i>
 
           @idealpapelaria523
@@ -1921,7 +2531,7 @@
       </div>
 
 
-      <!-- ENDEREÇO -->
+      <!-- ADDRESS -->
 
       <div>
 
@@ -1931,12 +2541,13 @@
           Onde estamos
         </h3>
 
+
         <div
           class="flex gap-3 text-slate-400"
         >
 
           <i
-            class="fa-solid fa-location-dot text-ideal-500 mt-1"
+            class="fa-solid fa-location-dot text-ideal-orange mt-1"
           ></i>
 
           <p class="leading-relaxed">
@@ -1956,7 +2567,7 @@
       </div>
 
 
-      <!-- HORÁRIO -->
+      <!-- HOURS -->
 
       <div>
 
@@ -1966,12 +2577,13 @@
           Horário
         </h3>
 
+
         <div
           class="flex gap-3 text-slate-400"
         >
 
           <i
-            class="fa-regular fa-clock text-ideal-500 mt-1"
+            class="fa-regular fa-clock text-ideal-pink mt-1"
           ></i>
 
           <p class="leading-relaxed">
@@ -1990,7 +2602,7 @@
       </div>
 
 
-      <!-- CONTATO -->
+      <!-- CONTACT -->
 
       <div>
 
@@ -1999,6 +2611,7 @@
         >
           Fale com a Ideal
         </h3>
+
 
         <a
           data-whatsapp
@@ -2015,6 +2628,7 @@
             ></i>
 
           </div>
+
 
           <div>
 
@@ -2044,8 +2658,7 @@
     >
 
       <p>
-        ©
-        <span id="year"></span>
+        © <span id="year"></span>
         Ideal Papelaria & Cia.
       </p>
 
@@ -2061,11 +2674,7 @@
 
 
 <!-- =====================================================
-     WHATSAPP FLUTUANTE
-
-     AJUSTADO:
-     Agora fica próximo ao rodapé da tela no celular.
-     Não existe mais a barra inferior fixa.
+     FLOATING WHATSAPP
 ====================================================== -->
 
 <a
@@ -2092,7 +2701,8 @@
    WHATSAPP
 ===================================================== */
 
-const whatsappNumber = "5511914062587";
+const whatsappNumber =
+  "5511914062587";
 
 const whatsappMessage =
   "Olá! Vim pelo site da Ideal Papelaria & Cia e gostaria de saber se vocês têm um produto/serviço.";
@@ -2100,19 +2710,25 @@ const whatsappMessage =
 const whatsappURL =
   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
+
 document
   .querySelectorAll("[data-whatsapp]")
   .forEach(button => {
 
-    button.href = whatsappURL;
-    button.target = "_blank";
-    button.rel = "noopener noreferrer";
+    button.href =
+      whatsappURL;
+
+    button.target =
+      "_blank";
+
+    button.rel =
+      "noopener noreferrer";
 
   });
 
 
 /* =====================================================
-   ANO AUTOMÁTICO
+   YEAR
 ===================================================== */
 
 document
@@ -2122,7 +2738,7 @@ document
 
 
 /* =====================================================
-   SCROLL SUAVE
+   SMOOTH SCROLL
 ===================================================== */
 
 document
@@ -2131,7 +2747,7 @@ document
 
     anchor.addEventListener(
       "click",
-      function(e) {
+      function(event) {
 
         const targetId =
           this.getAttribute("href");
@@ -2146,27 +2762,28 @@ document
         const target =
           document.querySelector(targetId);
 
-        if (target) {
-
-          e.preventDefault();
-
-          const headerOffset = 85;
-
-          const position =
-            target
-              .getBoundingClientRect()
-              .top
-            +
-            window.pageYOffset
-            -
-            headerOffset;
-
-          window.scrollTo({
-            top: position,
-            behavior: "smooth"
-          });
-
+        if (!target) {
+          return;
         }
+
+        event.preventDefault();
+
+        const headerOffset =
+          85;
+
+        const position =
+          target
+            .getBoundingClientRect()
+            .top
+          +
+          window.pageYOffset
+          -
+          headerOffset;
+
+        window.scrollTo({
+          top: position,
+          behavior: "smooth"
+        });
 
       }
     );
@@ -2175,7 +2792,7 @@ document
 
 
 /* =====================================================
-   CARROSSÉIS
+   CAROUSELS
 ===================================================== */
 
 document
@@ -2183,46 +2800,68 @@ document
   .forEach(carousel => {
 
     const track =
-      carousel.querySelector(".carousel-track");
+      carousel.querySelector(
+        ".carousel-track"
+      );
 
     const slides =
       Array.from(
-        carousel.querySelectorAll(".carousel-slide")
+        carousel.querySelectorAll(
+          ".carousel-slide"
+        )
       );
 
-    const prevButton =
-      carousel.querySelector(".carousel-prev");
+    const previousButton =
+      carousel.querySelector(
+        ".carousel-prev"
+      );
 
     const nextButton =
-      carousel.querySelector(".carousel-next");
+      carousel.querySelector(
+        ".carousel-next"
+      );
 
     const currentCounter =
-      carousel.querySelector(".current-slide");
+      carousel.querySelector(
+        ".current-slide"
+      );
 
     const totalCounter =
-      carousel.querySelector(".total-slides");
+      carousel.querySelector(
+        ".total-slides"
+      );
 
     const dotsContainer =
-      carousel.querySelector(".carousel-dots");
+      carousel.querySelector(
+        ".carousel-dots"
+      );
+
 
     let currentIndex = 0;
+
     let touchStartX = 0;
+
     let touchEndX = 0;
+
 
     /* TOTAL */
 
     totalCounter.textContent =
       slides.length;
 
-    /* CRIA OS DOTS */
+
+    /* CREATE DOTS */
 
     slides.forEach(
       (_, index) => {
 
         const dot =
-          document.createElement("button");
+          document.createElement(
+            "button"
+          );
 
-        dot.type = "button";
+        dot.type =
+          "button";
 
         dot.className =
           "carousel-dot";
@@ -2232,39 +2871,56 @@ document
           `Ir para imagem ${index + 1}`
         );
 
+
         if (index === 0) {
-          dot.classList.add("active");
+
+          dot.classList.add(
+            "active"
+          );
+
         }
+
 
         dot.addEventListener(
           "click",
           () => {
 
-            currentIndex = index;
+            currentIndex =
+              index;
+
             updateCarousel();
 
           }
         );
 
-        dotsContainer.appendChild(dot);
+
+        dotsContainer.appendChild(
+          dot
+        );
 
       }
     );
 
+
     const dots =
       Array.from(
-        dotsContainer.querySelectorAll(".carousel-dot")
+        dotsContainer.querySelectorAll(
+          ".carousel-dot"
+        )
       );
 
-    /* ATUALIZA */
+
+    /* UPDATE */
 
     function updateCarousel() {
 
       track.style.transform =
         `translateX(-${currentIndex * 100}%)`;
 
+
       currentCounter.textContent =
         currentIndex + 1;
+
 
       dots.forEach(
         (dot, index) => {
@@ -2279,7 +2935,8 @@ document
 
     }
 
-    /* PRÓXIMO */
+
+    /* NEXT */
 
     function nextSlide() {
 
@@ -2292,7 +2949,8 @@ document
 
     }
 
-    /* ANTERIOR */
+
+    /* PREVIOUS */
 
     function previousSlide() {
 
@@ -2311,26 +2969,38 @@ document
 
     }
 
-    /* BOTÕES */
 
-    nextButton.addEventListener(
-      "click",
-      nextSlide
-    );
+    /* BUTTON EVENTS */
 
-    prevButton.addEventListener(
-      "click",
-      previousSlide
-    );
+    if (nextButton) {
 
-    /* SWIPE MOBILE */
+      nextButton.addEventListener(
+        "click",
+        nextSlide
+      );
+
+    }
+
+
+    if (previousButton) {
+
+      previousButton.addEventListener(
+        "click",
+        previousSlide
+      );
+
+    }
+
+
+    /* SWIPE */
 
     carousel.addEventListener(
       "touchstart",
       event => {
 
         touchStartX =
-          event.changedTouches[0].screenX;
+          event.changedTouches[0]
+            .screenX;
 
       },
       {
@@ -2338,12 +3008,14 @@ document
       }
     );
 
+
     carousel.addEventListener(
       "touchend",
       event => {
 
         touchEndX =
-          event.changedTouches[0].screenX;
+          event.changedTouches[0]
+            .screenX;
 
         handleSwipe();
 
@@ -2353,10 +3025,13 @@ document
       }
     );
 
+
     function handleSwipe() {
 
       const difference =
-        touchStartX - touchEndX;
+        touchStartX -
+        touchEndX;
+
 
       if (
         Math.abs(difference)
@@ -2366,77 +3041,111 @@ document
         return;
       }
 
+
       if (difference > 0) {
+
         nextSlide();
+
       } else {
+
         previousSlide();
+
       }
 
     }
 
-    /* TECLADO */
+
+    /* KEYBOARD */
 
     carousel.setAttribute(
       "tabindex",
       "0"
     );
 
+
     carousel.addEventListener(
       "keydown",
       event => {
 
         if (
-          event.key === "ArrowRight"
+          event.key ===
+          "ArrowRight"
         ) {
+
           nextSlide();
+
         }
 
+
         if (
-          event.key === "ArrowLeft"
+          event.key ===
+          "ArrowLeft"
         ) {
+
           previousSlide();
+
         }
 
       }
     );
 
+
     /* =================================================
-       PLACEHOLDER PARA FOTOS AINDA NÃO ADICIONADAS
+       IMAGE FALLBACK
     ================================================= */
 
-    slides.forEach(slide => {
+    slides.forEach(
+      slide => {
 
-      const image =
-        slide.querySelector("img");
+        const image =
+          slide.querySelector("img");
 
-      image.addEventListener(
-        "error",
-        function() {
+        if (!image) {
+          return;
+        }
 
-          this.style.display =
-            "none";
 
-          slide.style.background =
-            "linear-gradient(135deg, #fff7ed, #ffedd5)";
+        image.addEventListener(
+          "error",
+          function() {
 
-          if (
-            !slide.querySelector(".image-placeholder")
-          ) {
+            this.style.display =
+              "none";
+
+
+            slide.style.background =
+              "linear-gradient(135deg,#fff7ed,#fdf2f8)";
+
+
+            if (
+              slide.querySelector(
+                ".image-placeholder"
+              )
+            ) {
+              return;
+            }
+
 
             const placeholder =
-              document.createElement("div");
+              document.createElement(
+                "div"
+              );
+
 
             placeholder.className =
-              "image-placeholder absolute inset-0 flex flex-col items-center justify-center text-center p-5 text-orange-500";
+              "image-placeholder absolute inset-0 flex flex-col items-center justify-center text-center p-5";
+
 
             placeholder.innerHTML = `
 
               <div
-                class="w-14 h-14 rounded-2xl bg-white/80 flex items-center justify-center shadow-sm mb-3"
+                class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-3 text-pink-500"
               >
+
                 <i
                   class="fa-solid fa-image text-xl"
                 ></i>
+
               </div>
 
               <span
@@ -2447,20 +3156,80 @@ document
 
             `;
 
+
             slide.appendChild(
               placeholder
             );
 
           }
+        );
 
-        }
-      );
+      }
+    );
 
-    });
 
     updateCarousel();
 
   });
+
+
+/* =====================================================
+   INSTAGRAM IMAGE FALLBACK
+===================================================== */
+
+document
+  .querySelectorAll(
+    ".instagram-photo img"
+  )
+  .forEach(
+    image => {
+
+      image.addEventListener(
+        "error",
+        function() {
+
+          this.style.display =
+            "none";
+
+          const parent =
+            this.parentElement;
+
+          parent.style.background =
+            "linear-gradient(135deg,#fff7ed,#fdf2f8)";
+
+
+          if (
+            parent.querySelector(
+              ".instagram-placeholder"
+            )
+          ) {
+            return;
+          }
+
+
+          const placeholder =
+            document.createElement(
+              "div"
+            );
+
+
+          placeholder.className =
+            "instagram-placeholder absolute inset-0 flex items-center justify-center text-pink-400";
+
+
+          placeholder.innerHTML =
+            '<i class="fa-brands fa-instagram text-3xl"></i>';
+
+
+          parent.appendChild(
+            placeholder
+          );
+
+        }
+      );
+
+    }
+  );
 
 </script>
 
