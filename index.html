@@ -1,42 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Ideal Papelaria & Cia | Vila Santa Edwiges - São Paulo</title>
+
+  <meta
+    name="description"
+    content="Material escolar, papelaria, eletrônicos, impressões, xerox, encadernação, cópia de chaves e fotos 3x4 na Vila Santa Edwiges, São Paulo."
+  >
+
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FONT AWESOME -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+
+          colors: {
+            ideal: {
+              orange: '#F58220',
+              orangeDark: '#D96812',
+
+              pink: '#EC4899',
+              pinkDark: '#DB2777',
+              pinkLight: '#FDF2F8',
+
+              dark: '#0F172A',
+              text: '#475569',
+
+              whatsapp: '#25D366'
+            }
+          },
+
+          boxShadow: {
+            soft: '0 20px 60px rgba(15,23,42,.08)',
+            card: '0 14px 40px rgba(15,23,42,.07)',
+            premium: '0 25px 80px rgba(15,23,42,.12)',
+            whatsapp: '0 15px 35px rgba(37,211,102,.28)'
+          }
+        }
+      }
+    }
+  </script>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: #EC4899;
+      color: white;
+    }
+
+
+    /* =====================================================
+       BRAND
+    ====================================================== */
+
+    .brand-gradient {
+      background: linear-gradient(
+        135deg,
+        #F58220 0%,
+        #F58220 42%,
+        #EC4899 100%
+      );
+    }
+
+    .brand-text {
+      background: linear-gradient(
+        90deg,
+        #F58220,
+        #EC4899
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    #mobileMenu {
+      overflow: hidden;
+    }
+
+    .mobile-menu-link {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+      position: relative;
+
+      background:
+        radial-gradient(
+          circle at 8% 18%,
+          rgba(245,130,32,.12),
+          transparent 27%
+        ),
+
+        radial-gradient(
+          circle at 92% 28%,
+          rgba(236,72,153,.10),
+          transparent 25%
+        ),
+
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #fffdfb 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      border-radius: 999px;
+
+      right: -220px;
+      top: 20px;
+
+      background: linear-gradient(
+        135deg,
+        rgba(245,130,32,.10),
+        rgba(236,72,153,.10)
+      );
+
+      pointer-events: none;
+    }
+
+
+    /* =====================================================
+       CARDS
+    ====================================================== */
+
+    .category-card {
+      transition:
+        transform .28s ease,
+        box-shadow .28s ease,
+        border-color .28s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 55px rgba(15,23,42,.11);
+    }
+
+    .category-orange:hover {
+      border-color: rgba(245,130,32,.35);
+    }
+
+    .category-pink:hover {
+      border-color: rgba(236,72,153,.35);
+    }
+
+    .category-blue:hover {
+      border-color: rgba(59,130,246,.35);
+    }
+
+
+    /* =====================================================
+       CAROUSEL
+    ====================================================== */
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #f1f5f9;
+      touch-action: pan-y;
+    }
+
+    .carousel-track {
+      display: flex;
+
+      width: 100%;
+      height: 100%;
+
+      transition:
+        transform .45s cubic-bezier(.22,.61,.36,1);
+
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      position: relative;
+
+      flex: 0 0 100%;
+
+      width: 100%;
+      height: 100%;
+
+      overflow: hidden;
+    }
+
+    .carousel-slide img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform .6s ease;
+    }
+
+    .category-card:hover .carousel-slide img {
+      transform: scale(1.035);
+    }
+
+    .carousel-overlay {
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.01),
+        transparent 50%,
+        rgba(0,0,0,.22)
+      );
+    }
+
+
+    /* ARROWS */
+
+    .carousel-arrow {
+      position: absolute;
+
+      z-index: 10;
+
+      top: 50%;
+
+      width: 40px;
+      height: 40px;
+
+      border: none;
+      border-radius: 999px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(255,255,255,.92);
+      color: #0F172A;
+
+      box-shadow:
+        0 5px 18px rgba(0,0,0,.14);
+
+      cursor: pointer;
+
+      backdrop-filter: blur(8px);
+
+      transition:
+        background .2s ease,
+        transform .2s ease;
+    }
+
+    .carousel-arrow:hover {
+      background: white;
+    }
+
+    .carousel-prev {
+      left: 12px;
+      transform: translateY(-50%);
+    }
+
+    .carousel-next {
+      right: 12px;
+      transform: translateY(-50%);
+    }
+
+
+    /* COUNTER */
+
+    .carousel-counter {
+      position: absolute;
+
+      z-index: 10;
+
+      top: 12px;
+      right: 12px;
+
+      padding: 5px 10px;
+
+      border-radius: 999px;
+
+      background: rgba(15,23,42,.72);
+      color: white;
+
+      backdrop-filter: blur(8px);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+
+    /* DOTS */
+
+    .carousel-dots {
+      position: absolute;
+
+      z-index: 10;
+
+      left: 50%;
+      bottom: 12px;
+
+      transform: translateX(-50%);
+
+      display: flex;
+      align-items: center;
+
+      gap: 5px;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+
+      padding: 0;
+
+      border: 0;
+      border-radius: 999px;
+
+      background: rgba(255,255,255,.55);
+
+      cursor: pointer;
+
+      transition:
+        width .25s ease,
+        background .25s ease;
+    }
+
+    .carousel-dot.active {
+      width: 23px;
+      background: white;
+    }
+
+
+    /* =====================================================
+       INSTAGRAM
+    ====================================================== */
+
+    .instagram-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .instagram-photo img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform .45s ease;
+    }
+
+    .instagram-photo:hover img {
+      transform: scale(1.06);
+    }
+
+    .instagram-overlay {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: linear-gradient(
+        135deg,
+        rgba(245,130,32,.72),
+        rgba(236,72,153,.78)
+      );
+
+      color: white;
+
+      opacity: 0;
+
+      transition: opacity .3s ease;
+    }
+
+    .instagram-photo:hover .instagram-overlay {
+      opacity: 1;
+    }
+
+
+    /* =====================================================
+       WHATSAPP
+    ====================================================== */
+
+    .whatsapp-pulse::before {
+      content: "";
+
+      position: absolute;
+
+      inset: -5px;
+
+      border-radius: 999px;
+
+      border: 2px solid rgba(37,211,102,.35);
+
+      animation: pulse-ring 2s infinite;
+
+      pointer-events: none;
+    }
+
+    @keyframes pulse-ring {
+
+      0% {
+        transform: scale(.9);
+        opacity: .8;
+      }
+
+      80%,
+      100% {
+        transform: scale(1.25);
+        opacity: 0;
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ====================================================== */
+
+    @media (max-width: 640px) {
+
+      .carousel-arrow {
+        width: 36px;
+        height: 36px;
+      }
+
+      .hero::before {
+        display: none;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body class="bg-white text-slate-800 font-sans">
+
+
 <!-- =====================================================
      HEADER
+     NÃO É FIXO / NÃO É STICKY
 ====================================================== -->
 
 <header
   class="relative z-40 bg-white border-b border-slate-100"
 >
 
-  <div
-    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-  >
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div
       class="h-[72px] flex items-center justify-between gap-3"
     >
 
+
       <!-- LOGO -->
 
       <a
         href="#inicio"
-        class="flex items-center gap-3 shrink-0"
+        class="flex items-center gap-2 sm:gap-3 shrink-0"
       >
 
         <div
-          class="w-11 h-11 rounded-xl brand-gradient text-white flex items-center justify-center shadow-md"
+          class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl brand-gradient text-white flex items-center justify-center shadow-md"
         >
-          <i class="fa-solid fa-pencil text-lg"></i>
+
+          <i class="fa-solid fa-pencil text-base sm:text-lg"></i>
+
         </div>
+
 
         <div class="leading-none">
 
           <span
-            class="block text-xl sm:text-2xl font-black tracking-tight text-slate-950"
+            class="block text-lg sm:text-2xl font-black tracking-tight text-slate-950"
           >
             Ideal
           </span>
 
           <span
-            class="text-[9px] sm:text-xs font-extrabold uppercase tracking-[.14em] brand-text"
+            class="text-[8px] sm:text-xs font-extrabold uppercase tracking-[.12em] sm:tracking-[.16em] brand-text whitespace-nowrap"
           >
             Papelaria & Cia
           </span>
@@ -46,7 +550,7 @@
       </a>
 
 
-      <!-- MENU DESKTOP -->
+      <!-- DESKTOP MENU -->
 
       <nav
         class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600"
@@ -90,11 +594,12 @@
       </nav>
 
 
-      <!-- AÇÕES -->
+      <!-- HEADER ACTIONS -->
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 shrink-0">
 
-        <!-- WHATSAPP -->
+
+        <!-- WHATSAPP HEADER -->
 
         <a
           data-whatsapp
@@ -102,27 +607,27 @@
           class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl px-3 sm:px-5 py-3 transition shadow-md active:scale-[.98]"
         >
 
-          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i>
 
           <span class="hidden sm:inline">
             Chamar no WhatsApp
           </span>
 
-          <span class="sm:hidden text-sm">
+          <span class="sm:hidden text-[12px]">
             WhatsApp
           </span>
 
         </a>
 
 
-        <!-- BOTÃO MENU MOBILE -->
+        <!-- MOBILE MENU BUTTON -->
 
         <button
           id="mobileMenuButton"
           type="button"
           aria-label="Abrir menu"
           aria-expanded="false"
-          class="lg:hidden w-11 h-11 rounded-xl border border-slate-200 bg-white text-slate-800 flex items-center justify-center transition hover:bg-slate-50 active:scale-95"
+          class="lg:hidden w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-xl border border-slate-200 bg-white text-slate-800 flex items-center justify-center transition hover:bg-slate-50 active:scale-95"
         >
 
           <i
@@ -138,7 +643,7 @@
 
 
     <!-- =================================================
-         MENU MOBILE
+         MOBILE MENU
     ================================================== -->
 
     <div
@@ -149,6 +654,9 @@
       <nav
         class="bg-white border border-slate-100 shadow-soft rounded-2xl p-2"
       >
+
+
+        <!-- PRODUTOS -->
 
         <a
           href="#categorias"
@@ -170,6 +678,8 @@
         </a>
 
 
+        <!-- SERVIÇOS -->
+
         <a
           href="#servicos"
           class="mobile-menu-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-orange-50 hover:text-ideal-orange transition"
@@ -189,6 +699,8 @@
 
         </a>
 
+
+        <!-- AVALIAÇÕES -->
 
         <a
           href="#avaliacoes"
@@ -210,6 +722,8 @@
         </a>
 
 
+        <!-- INSTAGRAM -->
+
         <a
           href="#instagram"
           class="mobile-menu-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-pink-50 hover:text-ideal-pink transition"
@@ -229,6 +743,8 @@
 
         </a>
 
+
+        <!-- ENDEREÇO -->
 
         <a
           href="#contato"
@@ -256,3 +772,2285 @@
   </div>
 
 </header>
+
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section
+  id="inicio"
+  class="hero overflow-hidden"
+>
+
+  <div
+    class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28"
+  >
+
+    <div
+      class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+    >
+
+
+      <!-- HERO COPY -->
+
+      <div class="max-w-2xl">
+
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-2 bg-orange-50 border border-orange-100 rounded-full text-sm font-bold text-orange-700 mb-6"
+        >
+
+          <i
+            class="fa-solid fa-location-dot text-ideal-orange"
+          ></i>
+
+          Vila Santa Edwiges • São Paulo
+
+        </div>
+
+
+        <h1
+          class="text-[2.55rem] leading-[1.03] sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-[-.045em] text-slate-950"
+        >
+
+          Tudo o que você precisa,
+
+          <span class="text-ideal-orange">
+            pertinho de você.
+          </span>
+
+        </h1>
+
+
+        <p
+          class="mt-6 text-lg sm:text-xl leading-relaxed text-slate-600 max-w-xl"
+        >
+
+          Material escolar, papelaria fofa, eletrônicos
+          e serviços rápidos de balcão na
+
+          <strong class="text-slate-800">
+            Vila Santa Edwiges / São Paulo.
+          </strong>
+
+        </p>
+
+
+        <div
+          class="mt-8 flex flex-col sm:flex-row gap-3"
+        >
+
+          <a
+            data-whatsapp
+            href="#"
+            class="inline-flex min-h-[58px] items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-base sm:text-lg font-extrabold rounded-2xl px-7 py-4 shadow-whatsapp transition hover:-translate-y-0.5 active:scale-[.98]"
+          >
+
+            <i
+              class="fa-brands fa-whatsapp text-2xl"
+            ></i>
+
+            Fazer Orçamento Rápido
+
+          </a>
+
+
+          <a
+            href="#categorias"
+            class="inline-flex min-h-[58px] items-center justify-center gap-2 bg-white border border-slate-200 hover:border-pink-200 text-slate-800 font-bold rounded-2xl px-7 py-4 transition"
+          >
+
+            Ver o que você encontra
+
+            <i
+              class="fa-solid fa-arrow-down text-sm"
+            ></i>
+
+          </a>
+
+        </div>
+
+
+        <!-- TRUST -->
+
+        <div
+          class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-600"
+        >
+
+          <div class="flex items-center gap-2">
+
+            <span
+              class="w-6 h-6 bg-green-50 rounded-full flex items-center justify-center"
+            >
+
+              <i
+                class="fa-solid fa-check text-green-600 text-xs"
+              ></i>
+
+            </span>
+
+            Atendimento local
+
+          </div>
+
+
+          <div class="flex items-center gap-2">
+
+            <span
+              class="w-6 h-6 bg-pink-50 rounded-full flex items-center justify-center"
+            >
+
+              <i
+                class="fa-solid fa-heart text-ideal-pink text-xs"
+              ></i>
+
+            </span>
+
+            Variedade na loja
+
+          </div>
+
+
+          <div class="flex items-center gap-2">
+
+            <span
+              class="w-6 h-6 bg-orange-50 rounded-full flex items-center justify-center"
+            >
+
+              <i
+                class="fa-solid fa-clock text-ideal-orange text-xs"
+              ></i>
+
+            </span>
+
+            Seg. a Sáb.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- HERO VISUAL -->
+
+      <div class="relative">
+
+        <div
+          class="absolute -top-12 -right-10 w-56 h-56 bg-pink-200/40 rounded-full blur-3xl"
+        ></div>
+
+        <div
+          class="absolute -bottom-10 -left-10 w-56 h-56 bg-orange-200/50 rounded-full blur-3xl"
+        ></div>
+
+
+        <div
+          class="relative bg-white rounded-[2rem] border border-slate-100 shadow-premium p-5 sm:p-7"
+        >
+
+          <div class="grid grid-cols-2 gap-4">
+
+            <div
+              class="col-span-2 brand-gradient rounded-3xl p-7 text-white min-h-[190px] flex flex-col justify-between overflow-hidden relative"
+            >
+
+              <div
+                class="absolute w-40 h-40 rounded-full bg-white/10 -right-12 -top-14"
+              ></div>
+
+              <div
+                class="absolute w-24 h-24 rounded-full bg-white/10 right-20 bottom-[-45px]"
+              ></div>
+
+
+              <div
+                class="relative w-14 h-14 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center"
+              >
+
+                <i
+                  class="fa-solid fa-pen-ruler text-2xl"
+                ></i>
+
+              </div>
+
+
+              <div class="relative">
+
+                <p
+                  class="text-white/80 text-sm font-semibold mb-1"
+                >
+                  Para escola, trabalho e dia a dia
+                </p>
+
+                <h2
+                  class="text-2xl sm:text-3xl font-black"
+                >
+                  Tudo em um só lugar.
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="bg-[#FDF2F8] border border-pink-100 rounded-3xl p-5 min-h-[155px]"
+            >
+
+              <div
+                class="w-11 h-11 rounded-xl bg-white text-ideal-pink shadow-sm flex items-center justify-center mb-5"
+              >
+                <i class="fa-solid fa-heart"></i>
+              </div>
+
+              <p class="font-extrabold text-slate-900">
+                Papelaria Fofa
+              </p>
+
+              <p class="text-sm text-slate-500 mt-1">
+                Agendas, canetas e mimos.
+              </p>
+
+            </div>
+
+
+            <div
+              class="bg-blue-50 border border-blue-100 rounded-3xl p-5 min-h-[155px]"
+            >
+
+              <div
+                class="w-11 h-11 rounded-xl bg-white text-blue-600 shadow-sm flex items-center justify-center mb-5"
+              >
+                <i class="fa-solid fa-headphones"></i>
+              </div>
+
+              <p class="font-extrabold text-slate-900">
+                Eletrônicos
+              </p>
+
+              <p class="text-sm text-slate-500 mt-1">
+                Fones, cabos e acessórios.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="absolute -bottom-6 -left-2 sm:-left-7 bg-white shadow-card border border-slate-100 rounded-2xl px-5 py-4"
+          >
+
+            <div class="flex items-center gap-3">
+
+              <div
+                class="w-11 h-11 bg-yellow-50 rounded-xl flex items-center justify-center text-yellow-500"
+              >
+                <i class="fa-solid fa-star text-xl"></i>
+              </div>
+
+              <div>
+
+                <div
+                  class="font-black text-lg leading-none text-slate-900"
+                >
+                  4.7
+
+                  <span class="text-yellow-400 text-sm">
+                    ★★★★★
+                  </span>
+                </div>
+
+                <div class="text-xs text-slate-500 mt-1">
+                  Avaliação no Google
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORIAS
+====================================================== -->
+
+<section
+  id="categorias"
+  class="py-20 md:py-28 bg-slate-50/70"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div class="max-w-2xl mx-auto text-center">
+
+      <span
+        class="inline-flex items-center gap-2 text-sm uppercase tracking-[.2em] font-extrabold brand-text"
+      >
+        Ideal Papelaria & Cia
+      </span>
+
+      <h2
+        class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950"
+      >
+        O que você encontra por aqui
+      </h2>
+
+      <p
+        class="mt-4 text-slate-600 text-lg"
+      >
+        Do material que faltou para amanhã ao serviço rápido
+        que você precisa resolver hoje.
+      </p>
+
+    </div>
+
+
+    <div
+      class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch"
+    >
+
+
+<!-- CARD 01 -->
+
+<article
+  class="category-card category-orange overflow-hidden bg-white border border-slate-100 rounded-3xl flex flex-col"
+>
+
+  <div
+    class="carousel h-[230px] sm:h-[245px]"
+    data-carousel
+  >
+
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="img/material-01.webp" alt="Materiais escolares" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/material-02.webp" alt="Produtos Faber-Castell" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/material-03.webp" alt="Papéis Canson" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/material-04.webp" alt="Tintas e materiais escolares" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/material-05.webp" alt="Produtos de escritório" loading="lazy">
+      </div>
+
+    </div>
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-counter">
+      <span class="current-slide">1</span>
+      /
+      <span class="total-slides">5</span>
+    </div>
+
+    <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="carousel-arrow carousel-next" type="button" aria-label="Próxima imagem">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="carousel-dots"></div>
+
+  </div>
+
+
+  <div class="p-6 flex flex-col flex-1">
+
+    <div
+      class="w-12 h-12 bg-orange-50 text-ideal-orange rounded-xl flex items-center justify-center text-xl mb-5"
+    >
+      <i class="fa-solid fa-book-open"></i>
+    </div>
+
+    <h3 class="text-xl font-black text-slate-900">
+      Material Escolar & Escritório
+    </h3>
+
+    <p class="mt-3 text-slate-500 leading-relaxed">
+      Para estudar, trabalhar ou completar sua lista sem complicação.
+    </p>
+
+    <div class="mt-5 flex flex-wrap gap-2">
+
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Cadernos Tilibra
+      </span>
+
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Faber-Castell
+      </span>
+
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Canson
+      </span>
+
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Tintas
+      </span>
+
+      <span class="bg-orange-50 text-orange-800 rounded-full px-3 py-1.5 text-xs font-semibold">
+        TekBond
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- CARD 02 -->
+
+<article
+  class="category-card category-pink overflow-hidden bg-white border border-pink-100 rounded-3xl flex flex-col"
+>
+
+  <div
+    class="carousel h-[230px] sm:h-[245px]"
+    data-carousel
+  >
+
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="img/fofa-01.webp" alt="Canetas coloridas" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/fofa-02.webp" alt="Agendas" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/fofa-03.webp" alt="Marca-textos" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/fofa-04.webp" alt="Estojos" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/fofa-05.webp" alt="Presentes" loading="lazy">
+      </div>
+
+    </div>
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-counter">
+      <span class="current-slide">1</span>
+      /
+      <span class="total-slides">5</span>
+    </div>
+
+    <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="carousel-arrow carousel-next" type="button" aria-label="Próxima imagem">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="carousel-dots"></div>
+
+  </div>
+
+
+  <div class="p-6 flex flex-col flex-1">
+
+    <div
+      class="w-12 h-12 bg-pink-50 text-ideal-pink rounded-xl flex items-center justify-center text-xl mb-5"
+    >
+      <i class="fa-solid fa-gift"></i>
+    </div>
+
+    <h3 class="text-xl font-black text-slate-900">
+      Papelaria Fofa & Presentes
+    </h3>
+
+    <p class="mt-3 text-slate-500 leading-relaxed">
+      Itens bonitos e criativos para você usar ou presentear.
+    </p>
+
+    <div class="mt-5 flex flex-wrap gap-2">
+
+      <span class="bg-pink-50 text-pink-700 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Canetas coloridas
+      </span>
+
+      <span class="bg-pink-50 text-pink-700 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Agendas
+      </span>
+
+      <span class="bg-pink-50 text-pink-700 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Mimos
+      </span>
+
+      <span class="bg-pink-50 text-pink-700 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Itens criativos
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- CARD 03 -->
+
+<article
+  class="category-card category-blue overflow-hidden bg-white border border-blue-100 rounded-3xl flex flex-col"
+>
+
+  <div
+    class="carousel h-[230px] sm:h-[245px]"
+    data-carousel
+  >
+
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="img/eletronicos-01.webp" alt="Fones Bluetooth" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/eletronicos-02.webp" alt="Cabos USB" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/eletronicos-03.webp" alt="Carregadores" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/eletronicos-04.webp" alt="Caixas de som" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/eletronicos-05.webp" alt="Acessórios eletrônicos" loading="lazy">
+      </div>
+
+    </div>
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-counter">
+      <span class="current-slide">1</span>
+      /
+      <span class="total-slides">5</span>
+    </div>
+
+    <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="carousel-arrow carousel-next" type="button" aria-label="Próxima imagem">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="carousel-dots"></div>
+
+  </div>
+
+
+  <div class="p-6 flex flex-col flex-1">
+
+    <div
+      class="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center text-xl mb-5"
+    >
+      <i class="fa-solid fa-headphones-simple"></i>
+    </div>
+
+    <h3 class="text-xl font-black text-slate-900">
+      Eletrônicos & Acessórios
+    </h3>
+
+    <p class="mt-3 text-slate-500 leading-relaxed">
+      Acessórios úteis para o celular, trabalho e rotina.
+    </p>
+
+    <div class="mt-5 flex flex-wrap gap-2">
+
+      <span class="bg-blue-50 text-blue-700 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Fones Kaidi
+      </span>
+
+      <span class="bg-blue-50 text-blue-700 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Bluetooth
+      </span>
+
+      <span class="bg-blue-50 text-blue-700 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Cabos USB
+      </span>
+
+      <span class="bg-blue-50 text-blue-700 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Caixas de som
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- CARD 04 -->
+
+<article
+  id="servicos"
+  class="category-card overflow-hidden bg-slate-950 text-white rounded-3xl flex flex-col"
+>
+
+  <div
+    class="carousel h-[230px] sm:h-[245px] bg-slate-800"
+    data-carousel
+  >
+
+    <div class="carousel-track">
+
+      <div class="carousel-slide">
+        <img src="img/servicos-01.webp" alt="Impressões e xerox" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/servicos-02.webp" alt="Encadernação" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/servicos-03.webp" alt="Fotos 3x4" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/servicos-04.webp" alt="Cópia de chaves" loading="lazy">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="img/servicos-05.webp" alt="Serviços Ideal Papelaria" loading="lazy">
+      </div>
+
+    </div>
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-counter">
+      <span class="current-slide">1</span>
+      /
+      <span class="total-slides">5</span>
+    </div>
+
+    <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="carousel-arrow carousel-next" type="button" aria-label="Próxima imagem">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="carousel-dots"></div>
+
+  </div>
+
+
+  <div class="p-6 flex flex-col flex-1">
+
+    <div
+      class="w-12 h-12 bg-white/10 text-orange-300 rounded-xl flex items-center justify-center text-xl mb-5"
+    >
+      <i class="fa-solid fa-print"></i>
+    </div>
+
+    <h3 class="text-xl font-black">
+      Serviços Rápidos de Balcão
+    </h3>
+
+    <p class="mt-3 text-slate-300 leading-relaxed">
+      Resolva serviços do dia a dia sem precisar ir longe.
+    </p>
+
+    <div class="mt-5 flex flex-wrap gap-2">
+
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Xerox
+      </span>
+
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Impressões
+      </span>
+
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Encadernação
+      </span>
+
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Cópia de chaves
+      </span>
+
+      <span class="bg-white/10 rounded-full px-3 py-1.5 text-xs font-semibold">
+        Fotos 3x4
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
+
+    </div>
+
+
+    <div class="mt-12 text-center">
+
+      <p class="text-slate-600 mb-4">
+        Quer saber se temos o que você procura?
+      </p>
+
+      <a
+        data-whatsapp
+        href="#"
+        class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl px-7 py-4 transition shadow-lg"
+      >
+
+        <i class="fa-brands fa-whatsapp text-xl"></i>
+
+        Perguntar pelo WhatsApp
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DIFERENCIAL
+====================================================== -->
+
+<section class="py-20 md:py-28">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div
+      class="overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-premium"
+    >
+
+      <div class="grid lg:grid-cols-2">
+
+        <div class="p-8 sm:p-12 lg:p-16">
+
+          <span
+            class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm font-bold text-orange-200"
+          >
+            <i class="fa-solid fa-house"></i>
+            Comércio do bairro
+          </span>
+
+          <h2
+            class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight"
+          >
+
+            O que você precisa pode estar
+
+            <span class="brand-text">
+              a poucos minutos de casa.
+            </span>
+
+          </h2>
+
+          <p
+            class="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl"
+          >
+            Antes de enfrentar trânsito ou ir até um shopping
+            para comprar um item simples, fale com a Ideal.
+            Você pergunta pelo WhatsApp, confirma o que precisa
+            e passa na loja para resolver.
+          </p>
+
+          <a
+            data-whatsapp
+            href="#"
+            class="mt-8 inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl px-7 py-4 transition"
+          >
+
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+
+            Consultar um produto
+
+          </a>
+
+        </div>
+
+
+        <div
+          class="brand-gradient p-8 sm:p-12 lg:p-16 flex items-center"
+        >
+
+          <div class="w-full grid grid-cols-2 gap-4">
+
+            <div
+              class="bg-white/15 backdrop-blur rounded-3xl p-5 sm:p-6 border border-white/10"
+            >
+
+              <i class="fa-solid fa-location-dot text-3xl"></i>
+
+              <p class="mt-5 font-black text-lg">
+                No bairro
+              </p>
+
+              <p class="text-white/75 text-sm mt-1">
+                Vila Santa Edwiges
+              </p>
+
+            </div>
+
+
+            <div
+              class="bg-white/15 backdrop-blur rounded-3xl p-5 sm:p-6 border border-white/10"
+            >
+
+              <i class="fa-brands fa-whatsapp text-3xl"></i>
+
+              <p class="mt-5 font-black text-lg">
+                Pergunte antes
+              </p>
+
+              <p class="text-white/75 text-sm mt-1">
+                Direto pelo WhatsApp
+              </p>
+
+            </div>
+
+
+            <div
+              class="col-span-2 bg-white text-slate-900 rounded-3xl p-6"
+            >
+
+              <div class="flex gap-4 items-center">
+
+                <div
+                  class="w-12 h-12 rounded-2xl bg-pink-50 text-ideal-pink flex items-center justify-center shrink-0"
+                >
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+
+                  <p class="font-black text-lg">
+                    Segunda a Sábado
+                  </p>
+
+                  <p class="text-slate-500">
+                    Das 08:00 às 19:30
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INSTAGRAM
+====================================================== -->
+
+<section
+  id="instagram"
+  class="py-20 md:py-28 bg-[#FDF7FA]"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="grid lg:grid-cols-[.85fr_1.15fr] gap-10 lg:gap-14 items-center"
+    >
+
+
+      <div>
+
+        <div
+          class="inline-flex items-center gap-2 bg-white border border-pink-100 text-ideal-pink rounded-full px-4 py-2 text-sm font-extrabold"
+        >
+
+          <i class="fa-brands fa-instagram text-lg"></i>
+
+          @idealpapelaria523
+
+        </div>
+
+
+        <h2
+          class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950"
+        >
+
+          Veja o que está chegando
+
+          <span class="brand-text">
+            na Ideal.
+          </span>
+
+        </h2>
+
+
+        <p
+          class="mt-5 text-lg text-slate-600 leading-relaxed"
+        >
+          Acompanhe novidades, produtos, papelaria,
+          eletrônicos e itens que chegam à loja.
+        </p>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-7 inline-flex items-center justify-center gap-3 brand-gradient text-white font-extrabold rounded-2xl px-7 py-4 shadow-lg transition hover:-translate-y-0.5"
+        >
+
+          <i class="fa-brands fa-instagram text-xl"></i>
+
+          Seguir no Instagram
+
+        </a>
+
+      </div>
+
+
+      <div
+        class="grid grid-cols-3 gap-2 sm:gap-3 bg-white p-2 sm:p-3 rounded-[2rem] shadow-soft border border-pink-100"
+      >
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-pink-50"
+        >
+          <img src="img/instagram-01.webp" alt="Ideal Papelaria Instagram" loading="lazy">
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-orange-50"
+        >
+          <img src="img/instagram-02.webp" alt="Novidade Ideal Papelaria" loading="lazy">
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-pink-50"
+        >
+          <img src="img/instagram-03.webp" alt="Produto Ideal Papelaria" loading="lazy">
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-orange-50"
+        >
+          <img src="img/instagram-04.webp" alt="Papelaria e presentes" loading="lazy">
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-pink-50"
+        >
+          <img src="img/instagram-05.webp" alt="Eletrônicos Ideal Papelaria" loading="lazy">
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-photo aspect-square rounded-2xl bg-orange-50"
+        >
+          <img src="img/instagram-06.webp" alt="Novidades Ideal Papelaria" loading="lazy">
+          <div class="instagram-overlay">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AVALIAÇÕES
+====================================================== -->
+
+<section
+  id="avaliacoes"
+  class="py-20 md:py-28 bg-white"
+>
+
+  <div
+    class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div class="text-center">
+
+      <div
+        class="inline-flex items-center gap-1 text-yellow-400 text-2xl mb-4"
+      >
+
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+
+      </div>
+
+      <h2
+        class="text-4xl sm:text-5xl font-black text-slate-950"
+      >
+        4.7 no Google
+      </h2>
+
+      <p
+        class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto"
+      >
+        A experiência de quem compra no bairro ajuda
+        outras pessoas a encontrar a Ideal.
+      </p>
+
+    </div>
+
+
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+
+
+      <article
+        class="bg-white rounded-3xl p-7 border border-slate-100 shadow-card"
+      >
+
+        <div class="text-yellow-400 tracking-wider text-sm">
+          ★★★★★
+        </div>
+
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          “Ótimo atendimento e muita variedade.
+          Sempre encontro o que preciso.”
+        </p>
+
+        <div class="mt-6 flex items-center gap-3">
+
+          <div
+            class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center font-black text-ideal-orange"
+          >
+            C
+          </div>
+
+          <div>
+
+            <p class="font-bold text-slate-900">
+              Cliente local
+            </p>
+
+            <p class="text-xs text-slate-400">
+              Avaliação no Google
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article
+        class="bg-white rounded-3xl p-7 border border-pink-100 shadow-card"
+      >
+
+        <div class="text-yellow-400 tracking-wider text-sm">
+          ★★★★★
+        </div>
+
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          “Loja prática para resolver várias coisas
+          sem precisar sair do bairro.”
+        </p>
+
+        <div class="mt-6 flex items-center gap-3">
+
+          <div
+            class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center font-black text-ideal-pink"
+          >
+            C
+          </div>
+
+          <div>
+
+            <p class="font-bold text-slate-900">
+              Cliente local
+            </p>
+
+            <p class="text-xs text-slate-400">
+              Avaliação no Google
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article
+        class="bg-white rounded-3xl p-7 border border-slate-100 shadow-card"
+      >
+
+        <div class="text-yellow-400 tracking-wider text-sm">
+          ★★★★★
+        </div>
+
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          “Atendimento rápido e várias opções
+          de papelaria e serviços.”
+        </p>
+
+        <div class="mt-6 flex items-center gap-3">
+
+          <div
+            class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center font-black text-blue-600"
+          >
+            C
+          </div>
+
+          <div>
+
+            <p class="font-bold text-slate-900">
+              Cliente local
+            </p>
+
+            <p class="text-xs text-slate-400">
+              Avaliação no Google
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <div
+      class="mt-10 bg-[#FDF7FA] border border-pink-100 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6"
+    >
+
+      <div
+        class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-5"
+      >
+
+        <div
+          class="w-16 h-16 brand-gradient text-white rounded-2xl flex items-center justify-center shrink-0"
+        >
+          <i class="fa-solid fa-wifi rotate-90 text-2xl"></i>
+        </div>
+
+        <div>
+
+          <h3 class="text-xl font-black text-slate-900">
+            Já comprou com a gente?
+          </h3>
+
+          <p class="mt-1 text-slate-500">
+            Aproxime seu celular da placa NFC no balcão
+            e deixe sua avaliação no Google.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="flex items-center gap-2 text-yellow-400 font-black text-lg whitespace-nowrap"
+      >
+
+        4.7
+
+        <span>
+          ★★★★★
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA FINAL
+====================================================== -->
+
+<section class="py-20 bg-slate-50">
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+    <div
+      class="brand-gradient relative overflow-hidden rounded-[2rem] px-6 py-12 sm:p-14 text-center text-white shadow-premium"
+    >
+
+      <div
+        class="absolute w-64 h-64 rounded-full bg-white/10 -top-32 -right-24"
+      ></div>
+
+      <div
+        class="absolute w-44 h-44 rounded-full bg-white/10 -bottom-24 -left-16"
+      ></div>
+
+
+      <div class="relative">
+
+        <div
+          class="w-16 h-16 mx-auto bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mb-6"
+        >
+          <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </div>
+
+        <h2
+          class="text-3xl sm:text-5xl font-black tracking-tight"
+        >
+          Procurando alguma coisa específica?
+        </h2>
+
+        <p
+          class="mt-4 text-white/85 text-lg max-w-2xl mx-auto"
+        >
+          Mande uma mensagem e pergunte.
+          Assim você pode confirmar antes de sair de casa.
+        </p>
+
+        <a
+          data-whatsapp
+          href="#"
+          class="mt-8 inline-flex min-h-[60px] items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-950 font-black rounded-2xl px-7 sm:px-9 py-4 transition shadow-lg"
+        >
+
+          <i
+            class="fa-brands fa-whatsapp text-[#25D366] text-2xl"
+          ></i>
+
+          Fazer Orçamento no WhatsApp
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer
+  id="contato"
+  class="bg-slate-950 text-white pt-16 pb-8"
+>
+
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
+
+    <div
+      class="grid md:grid-cols-2 lg:grid-cols-4 gap-10"
+    >
+
+
+      <div>
+
+        <div class="flex items-center gap-3">
+
+          <div
+            class="w-11 h-11 rounded-xl brand-gradient flex items-center justify-center"
+          >
+            <i class="fa-solid fa-pencil"></i>
+          </div>
+
+          <div>
+
+            <p class="font-black text-xl leading-none">
+              Ideal
+            </p>
+
+            <p
+              class="text-[11px] uppercase tracking-[.15em] text-pink-300 font-bold mt-1"
+            >
+              Papelaria & Cia
+            </p>
+
+          </div>
+
+        </div>
+
+        <p
+          class="mt-5 text-slate-400 leading-relaxed text-sm"
+        >
+          Papelaria, eletrônicos e serviços rápidos
+          para facilitar seu dia a dia no bairro.
+        </p>
+
+        <a
+          href="https://www.instagram.com/idealpapelaria523"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex items-center gap-2 text-white hover:text-pink-300 transition"
+        >
+
+          <i
+            class="fa-brands fa-instagram text-xl text-ideal-pink"
+          ></i>
+
+          @idealpapelaria523
+
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="font-black text-lg mb-5">
+          Onde estamos
+        </h3>
+
+        <div class="flex gap-3 text-slate-400">
+
+          <i
+            class="fa-solid fa-location-dot text-ideal-orange mt-1"
+          ></i>
+
+          <p class="leading-relaxed">
+            R. Agamenon Magalhães, 523
+            <br>
+            Vila Santa Edwiges
+            <br>
+            São Paulo - SP
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="font-black text-lg mb-5">
+          Horário
+        </h3>
+
+        <div class="flex gap-3 text-slate-400">
+
+          <i
+            class="fa-regular fa-clock text-ideal-pink mt-1"
+          ></i>
+
+          <p class="leading-relaxed">
+            Segunda a Sábado
+            <br>
+
+            <strong class="text-white">
+              08:00 às 19:30
+            </strong>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="font-black text-lg mb-5">
+          Fale com a Ideal
+        </h3>
+
+        <a
+          data-whatsapp
+          href="#"
+          class="flex items-center gap-3 text-slate-300 hover:text-white transition"
+        >
+
+          <div
+            class="w-10 h-10 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center"
+          >
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+          </div>
+
+          <div>
+
+            <p class="text-xs text-slate-500">
+              WhatsApp
+            </p>
+
+            <p class="font-bold">
+              (11) 91406-2587
+            </p>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="border-t border-slate-800 mt-12 pt-7 flex flex-col sm:flex-row justify-between gap-3 text-xs text-slate-500"
+    >
+
+      <p>
+        © <span id="year"></span>
+        Ideal Papelaria & Cia.
+      </p>
+
+      <p>
+        Vila Santa Edwiges • São Paulo - SP
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     WHATSAPP FLUTUANTE
+     ESTE CONTINUA FIXO
+====================================================== -->
+
+<a
+  data-whatsapp
+  href="#"
+  aria-label="Chamar a Ideal Papelaria no WhatsApp"
+  class="whatsapp-pulse fixed z-[60] right-4 bottom-5 md:right-6 md:bottom-6 w-16 h-16 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-whatsapp flex items-center justify-center transition hover:scale-105"
+>
+
+  <i
+    class="fa-brands fa-whatsapp text-3xl"
+  ></i>
+
+</a>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+const whatsappNumber =
+  "5511914062587";
+
+const whatsappMessage =
+  "Olá! Vim pelo site da Ideal Papelaria & Cia e gostaria de saber se vocês têm um produto/serviço.";
+
+const whatsappURL =
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+
+document
+  .querySelectorAll("[data-whatsapp]")
+  .forEach(button => {
+
+    button.href =
+      whatsappURL;
+
+    button.target =
+      "_blank";
+
+    button.rel =
+      "noopener noreferrer";
+
+  });
+
+
+
+/* =====================================================
+   YEAR
+===================================================== */
+
+document
+  .getElementById("year")
+  .textContent =
+  new Date().getFullYear();
+
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const mobileMenuButton =
+  document.getElementById("mobileMenuButton");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+const mobileMenuIcon =
+  document.getElementById("mobileMenuIcon");
+
+
+function closeMobileMenu() {
+
+  if (
+    !mobileMenu ||
+    !mobileMenuButton ||
+    !mobileMenuIcon
+  ) {
+    return;
+  }
+
+  mobileMenu.classList.add("hidden");
+
+  mobileMenuButton.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  mobileMenuIcon.classList.remove(
+    "fa-xmark"
+  );
+
+  mobileMenuIcon.classList.add(
+    "fa-bars"
+  );
+
+}
+
+
+function openMobileMenu() {
+
+  if (
+    !mobileMenu ||
+    !mobileMenuButton ||
+    !mobileMenuIcon
+  ) {
+    return;
+  }
+
+  mobileMenu.classList.remove("hidden");
+
+  mobileMenuButton.setAttribute(
+    "aria-expanded",
+    "true"
+  );
+
+  mobileMenuIcon.classList.remove(
+    "fa-bars"
+  );
+
+  mobileMenuIcon.classList.add(
+    "fa-xmark"
+  );
+
+}
+
+
+if (
+  mobileMenuButton &&
+  mobileMenu
+) {
+
+  mobileMenuButton.addEventListener(
+    "click",
+    function() {
+
+      const isOpen =
+        !mobileMenu.classList.contains(
+          "hidden"
+        );
+
+      if (isOpen) {
+
+        closeMobileMenu();
+
+      } else {
+
+        openMobileMenu();
+
+      }
+
+    }
+  );
+
+}
+
+
+/* FECHA MENU AO CLICAR */
+
+document
+  .querySelectorAll(".mobile-menu-link")
+  .forEach(link => {
+
+    link.addEventListener(
+      "click",
+      closeMobileMenu
+    );
+
+  });
+
+
+/* FECHA MENU SE MUDAR PARA DESKTOP */
+
+window.addEventListener(
+  "resize",
+  function() {
+
+    if (
+      window.innerWidth >= 1024
+    ) {
+
+      closeMobileMenu();
+
+    }
+
+  }
+);
+
+
+
+/* =====================================================
+   SMOOTH SCROLL
+===================================================== */
+
+document
+  .querySelectorAll('a[href^="#"]')
+  .forEach(anchor => {
+
+    anchor.addEventListener(
+      "click",
+      function(event) {
+
+        const targetId =
+          this.getAttribute("href");
+
+        if (
+          !targetId ||
+          targetId === "#"
+        ) {
+          return;
+        }
+
+        const target =
+          document.querySelector(
+            targetId
+          );
+
+        if (!target) {
+          return;
+        }
+
+        event.preventDefault();
+
+        /*
+          O HEADER NÃO É MAIS FIXO.
+          Portanto não precisamos descontar
+          a altura do header.
+        */
+
+        const position =
+          target.getBoundingClientRect().top
+          +
+          window.pageYOffset
+          -
+          12;
+
+        window.scrollTo({
+          top: position,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+  });
+
+
+
+/* =====================================================
+   CAROUSELS
+===================================================== */
+
+document
+  .querySelectorAll("[data-carousel]")
+  .forEach(carousel => {
+
+    const track =
+      carousel.querySelector(
+        ".carousel-track"
+      );
+
+    const slides =
+      Array.from(
+        carousel.querySelectorAll(
+          ".carousel-slide"
+        )
+      );
+
+    const previousButton =
+      carousel.querySelector(
+        ".carousel-prev"
+      );
+
+    const nextButton =
+      carousel.querySelector(
+        ".carousel-next"
+      );
+
+    const currentCounter =
+      carousel.querySelector(
+        ".current-slide"
+      );
+
+    const totalCounter =
+      carousel.querySelector(
+        ".total-slides"
+      );
+
+    const dotsContainer =
+      carousel.querySelector(
+        ".carousel-dots"
+      );
+
+
+    let currentIndex =
+      0;
+
+    let touchStartX =
+      0;
+
+    let touchEndX =
+      0;
+
+
+    if (
+      totalCounter
+    ) {
+
+      totalCounter.textContent =
+        slides.length;
+
+    }
+
+
+    /* DOTS */
+
+    slides.forEach(
+      (_, index) => {
+
+        const dot =
+          document.createElement(
+            "button"
+          );
+
+        dot.type =
+          "button";
+
+        dot.className =
+          "carousel-dot";
+
+        dot.setAttribute(
+          "aria-label",
+          `Ir para imagem ${index + 1}`
+        );
+
+
+        if (
+          index === 0
+        ) {
+
+          dot.classList.add(
+            "active"
+          );
+
+        }
+
+
+        dot.addEventListener(
+          "click",
+          () => {
+
+            currentIndex =
+              index;
+
+            updateCarousel();
+
+          }
+        );
+
+
+        if (
+          dotsContainer
+        ) {
+
+          dotsContainer.appendChild(
+            dot
+          );
+
+        }
+
+      }
+    );
+
+
+    const dots =
+      dotsContainer
+      ?
+      Array.from(
+        dotsContainer.querySelectorAll(
+          ".carousel-dot"
+        )
+      )
+      :
+      [];
+
+
+    function updateCarousel() {
+
+      if (!track) {
+        return;
+      }
+
+      track.style.transform =
+        `translateX(-${currentIndex * 100}%)`;
+
+
+      if (
+        currentCounter
+      ) {
+
+        currentCounter.textContent =
+          currentIndex + 1;
+
+      }
+
+
+      dots.forEach(
+        (dot, index) => {
+
+          dot.classList.toggle(
+            "active",
+            index === currentIndex
+          );
+
+        }
+      );
+
+    }
+
+
+    function nextSlide() {
+
+      if (
+        slides.length === 0
+      ) {
+        return;
+      }
+
+      currentIndex =
+        (currentIndex + 1)
+        %
+        slides.length;
+
+      updateCarousel();
+
+    }
+
+
+    function previousSlide() {
+
+      if (
+        slides.length === 0
+      ) {
+        return;
+      }
+
+      currentIndex =
+        (
+          currentIndex
+          -
+          1
+          +
+          slides.length
+        )
+        %
+        slides.length;
+
+      updateCarousel();
+
+    }
+
+
+    if (
+      nextButton
+    ) {
+
+      nextButton.addEventListener(
+        "click",
+        nextSlide
+      );
+
+    }
+
+
+    if (
+      previousButton
+    ) {
+
+      previousButton.addEventListener(
+        "click",
+        previousSlide
+      );
+
+    }
+
+
+    /* SWIPE */
+
+    carousel.addEventListener(
+      "touchstart",
+      event => {
+
+        touchStartX =
+          event.changedTouches[0]
+            .screenX;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    carousel.addEventListener(
+      "touchend",
+      event => {
+
+        touchEndX =
+          event.changedTouches[0]
+            .screenX;
+
+        const difference =
+          touchStartX
+          -
+          touchEndX;
+
+
+        if (
+          Math.abs(difference)
+          <
+          45
+        ) {
+          return;
+        }
+
+
+        if (
+          difference > 0
+        ) {
+
+          nextSlide();
+
+        } else {
+
+          previousSlide();
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* KEYBOARD */
+
+    carousel.setAttribute(
+      "tabindex",
+      "0"
+    );
+
+
+    carousel.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key ===
+          "ArrowRight"
+        ) {
+
+          nextSlide();
+
+        }
+
+
+        if (
+          event.key ===
+          "ArrowLeft"
+        ) {
+
+          previousSlide();
+
+        }
+
+      }
+    );
+
+
+    /* IMAGE FALLBACK */
+
+    slides.forEach(
+      slide => {
+
+        const image =
+          slide.querySelector(
+            "img"
+          );
+
+        if (!image) {
+          return;
+        }
+
+
+        image.addEventListener(
+          "error",
+          function() {
+
+            this.style.display =
+              "none";
+
+
+            slide.style.background =
+              "linear-gradient(135deg,#fff7ed,#fdf2f8)";
+
+
+            if (
+              slide.querySelector(
+                ".image-placeholder"
+              )
+            ) {
+              return;
+            }
+
+
+            const placeholder =
+              document.createElement(
+                "div"
+              );
+
+
+            placeholder.className =
+              "image-placeholder absolute inset-0 flex flex-col items-center justify-center text-center p-5";
+
+
+            placeholder.innerHTML = `
+
+              <div
+                class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-3 text-pink-500"
+              >
+
+                <i
+                  class="fa-solid fa-image text-xl"
+                ></i>
+
+              </div>
+
+              <span
+                class="text-xs font-bold text-slate-600"
+              >
+                Adicione a foto deste produto
+              </span>
+
+            `;
+
+
+            slide.appendChild(
+              placeholder
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    updateCarousel();
+
+  });
+
+
+
+/* =====================================================
+   INSTAGRAM IMAGE FALLBACK
+===================================================== */
+
+document
+  .querySelectorAll(
+    ".instagram-photo img"
+  )
+  .forEach(
+    image => {
+
+      image.addEventListener(
+        "error",
+        function() {
+
+          this.style.display =
+            "none";
+
+          const parent =
+            this.parentElement;
+
+          parent.style.background =
+            "linear-gradient(135deg,#fff7ed,#fdf2f8)";
+
+
+          if (
+            parent.querySelector(
+              ".instagram-placeholder"
+            )
+          ) {
+            return;
+          }
+
+
+          const placeholder =
+            document.createElement(
+              "div"
+            );
+
+
+          placeholder.className =
+            "instagram-placeholder absolute inset-0 flex items-center justify-center text-pink-400";
+
+
+          placeholder.innerHTML =
+            '<i class="fa-brands fa-instagram text-3xl"></i>';
+
+
+          parent.appendChild(
+            placeholder
+          );
+
+        }
+      );
+
+    }
+  );
+
+</script>
+
+</body>
+</html>
